@@ -1,0 +1,45 @@
+# ====================================================================
+# CableHunt Networks Limited - Git Ignore Configuration
+# Protects private keys, secrets, audit logs, and internal archives
+# ====================================================================
+
+# Security & Private Credentials
+*.key
+*.pem
+*secret*.json
+gemini*.txt
+*.env
+.env.*
+assets/js/config.js
+
+# Internal Company Archives & WhatsApp Audio Transcripts
+معلومات الشركة التقنية/
+ملاحطات المدير العام/
+audio_transcriptions.json
+chronological_timeline.md
+generate_chronological_notes.py
+transcribe_notes.py
+diagnose_mobile.py
+check_dom.py
+run_live_audit.py
+خطه_تطوير_الموقع_الشاملة_للتدقيق.md
+*.mp4
+*.ogg
+
+# Test Artifacts & Live Audits
+test_results/
+live_audit_results/
+test_out.txt
+*.log
+
+# Python cache & temporary build files
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# OS & Editor Specific Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
