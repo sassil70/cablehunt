@@ -1,0 +1,34 @@
+{
+  "architectures": [
+    "CableHuntOpticalPINNForWaveformClassification"
+  ],
+  "model_type": "cablehunt_optical_1dcnn_pinn",
+  "organization": "CableHunt Networks Limited (UK Company No. 16093071)",
+  "official_domain": "https://cablehunt.co.uk",
+  "principal_architect": "Eng. Saleem Asseel (saleem@cablehunt.co.uk)",
+  "operations_lead": "Ahmad Jalal Assil (jalal@cablehunt.co.uk)",
+  "executive_lead": "Batoul Zien Alabdin (batoul@cablehunt.co.uk)",
+  "public_weights_release_year": 2029,
+  "software_open_source_date": "2027-09-01",
+  "adc_native_bits": 12,
+  "adc_quantisation_levels": 4096,
+  "boxcar_hardware_averages": 1024,
+  "effective_dynamic_snr_db": 72.2,
+  "event_dead_zone_metres": 0.8,
+  "spectral_grid_nm": [1260.0, 1675.0],
+  "itu_t_bands": ["O", "E", "S", "C", "L", "U"],
+  "conv_channels": [64, 128, 256, 512],
+  "dilated_kernel_sizes": [3, 7, 15, 31],
+  "spectral_transformer_layers": 6,
+  "attention_heads": 8,
+  "hidden_dim": 512,
+  "id2label": {
+    "0": "NOMINAL_40G_DWDM_SPAN",
+    "1": "SUB_DB_FUSION_SPLICE_DECAY",
+    "2": "PHYSICAL_DUCT_MACROBEND_PINCH",
+    "3": "ODF_FERRULE_ENDFACE_CONTAMINATION",
+    "4": "DFB_LASER_THERMAL_SAG",
+    "5": "ACOUSTIC_EXCAVATION_FIBER_CUT"
+  },
+  "remediation_sla_ms": 38.4
+}

@@ -1,40 +1,44 @@
-# CableHunt Networks Limited - Deferred Open-Source & Private Evaluation License
-**Version 1.0 (Effective October 2026 – Transition Date: September 30, 2027)**
+# CableHunt Deferred Open-Source & Smart AI Governance License
 
-Copyright (c) 2023–2026 **CableHunt Networks Limited** (UK Registration No. 16093071).  
-All rights reserved worldwide.
-
----
-
-## 1. PRE-RELEASE EVALUATION TERMS (October 2026 – September 30, 2027)
-
-Prior to **September 30, 2027**, access to this repository, including all accompanying software source code, digital signal processing (DSP) algorithms, 12-Bit ADC telemetry modules, 3D CAD models, and web applications, is granted under the following **Private Evaluation Terms**:
-
-### 1.1 Permitted Uses (Private & Educational Use Only)
-* **Private Evaluation:** You are granted a limited, personal, non-exclusive, non-transferable, revocable license to clone, compile, and execute the software locally for private inspection, academic research, and personal evaluation.
-* **Non-Commercial Testing:** You may conduct non-commercial laboratory simulations and educational benchmarks.
-
-### 1.2 Prohibited Acts (No Distribution / Non-Redistribution)
-* **Strict Non-Distribution:** You may NOT redistribute, republish, mirror, sell, lease, sublicense, or publicly host this software, whether modified or unmodified.
-* **No Commercial Production:** You may NOT use this software or its telemetry models in commercial data centres, carrier-grade telecommunications networks, or fee-generating services without an explicit commercial license executed by CableHunt Networks Limited.
-* **No Proprietary Claim:** You may not remove or alter any copyright, patent, trademark, or proprietary attribution notices.
+**Copyright (c) 2024–2026 CableHunt Networks Limited (UK Company No. 16093071) & Eng. Saleem Asseel.**  
+**Official Domain:** [https://cablehunt.co.uk](https://cablehunt.co.uk)  
+**All Rights Reserved (Subject to the Two-Stage Open Transition Schedule below).**
 
 ---
 
-## 2. DEFERRED OPEN-SOURCE COVENANT (Effective September 30, 2027)
+## 1. Current Grant of License (Private Evaluation & Research Only)
 
-### 2.1 The Open-Source Transition
-Effective **September 30, 2027 (09/2027)**, CableHunt Networks Limited formally covenants and commits that:
-1. The source code within this repository shall automatically transition to a permissive **Open-Source License** (the **Apache License, Version 2.0** or **MIT License**, as finalized by the project maintainers).
-2. The global engineering, photonics, and telecommunications developer community shall be granted full rights to inspect, fork, modify, contribute to, and distribute the software subject to the standard provisions of the chosen open-source license and physical-layer optical laser safety covenants.
+Prior to **1 September 2027**, permission is hereby granted, free of charge, to any individual, academic researcher, or evaluating telecommunications engineer obtaining a copy of this software and associated documentation files (the "Software"), to view, inspect, compile, and execute the Software **strictly for private, personal, non-commercial, and academic evaluation purposes**, subject to the following restrictions:
+
+1. **No Commercial Use:** You may not use the Software, its 12-bit optical Digital Signal Processing (DSP) algorithms, or its autonomous Netmiko switch remediation routines in commercial production networks, commercial hardware products, or paid consulting services without a commercial license from CableHunt Networks Limited.
+2. **No Redistribution or Sub-licensing:** You may not redistribute, resell, sublicense, host as a commercial SaaS, or publish modified versions of this repository.
+3. **Preservation of Notices:** The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 ---
 
-## 3. CONTACT & FORMAL LICENSING ENQUIRIES
+## 2. Two-Stage Automatic Open Transition Schedule (2027 & 2029)
 
-For enterprise licensing, commercial deployment, field trial partnerships, or inquiries prior to September 2027, please contact the founding executive office:
+### Stage 1 — Open-Source Software Stack (1 September 2027)
+Effective automatically on **1 September 2027** ("Stage 1 Conversion Date"), the core software stack, Python 12-bit DSP acquisition utilities, Bellcore `.SOR` parser, and Netmiko switch orchestration scripts hosted in [`https://github.com/sassil70/cablehunt`](https://github.com/sassil70/cablehunt) shall transition to a standard permissive **Open-Source License (Apache License 2.0 / MIT License)**.
 
-* **Executive Office:** 3rd Floor, 45 Albemarle Street, Mayfair, London, W1S 4JL, United Kingdom
-* **Founding Lead Systems Researcher:** Eng. Saleem Asseel (`assilno1@gmail.com`, `saleem@cablehunt.co.uk`, `saleem@cabelhunt.com`)
-* **Corporate Enquiries:** `info@cablehunt.co.uk` | `partners@cablehunt.co.uk`
-* **Website:** [https://www.cablehunt.co.uk](https://www.cablehunt.co.uk)
+### Stage 2 — Smart Optical AI Model Public Weights Release (2029)
+The pre-trained weights, physics-informed 1D-CNN + Spectral Transformer architecture, and carrier-grade 12-bit `.SOR` training corpus for the **CableHunt Smart Optical AI Model** hosted at [`https://huggingface.co/sassil70/cablehunt-optical-ai`](https://huggingface.co/sassil70/cablehunt-optical-ai) are scheduled for open public release in **2029** ("Stage 2 AI Release Date"), following completion of:
+- Multi-winter UK carrier endurance validation across 80 km G.652.D / G.657.A1 spans;
+- Class 1M laser power ceiling and adversarial optical injection safety audits;
+- Critical National Infrastructure (CNI) security compliance under the **UK Telecommunications (Security) Act**.
+
+---
+
+## 3. Commercial Licensing & Early Carrier Partnerships
+
+Telecommunications operators, ISP infrastructure providers, and data centre operators seeking commercial deployment rights, OEM hardware integration, or early access to the `cablehunt-optical-ai` model weights prior to the 2027 / 2029 open milestones may contact our UK offices:
+
+* **Lead Scientific Advisor & Systems Architect:** Eng. Saleem Asseel — [`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk) / [`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk) / [`assilno1@gmail.com`](mailto:assilno1@gmail.com)
+* **Chief Operating Officer & Co-Founder:** Ahmad Jalal Assil — [`jalal@cablehunt.co.uk`](mailto:jalal@cablehunt.co.uk) / [`jalal@cablehunt.co.uk`](mailto:jalal@cablehunt.co.uk)
+* **Chief Executive Officer:** Batoul Zien Alabdin — [`batoul@cablehunt.co.uk`](mailto:batoul@cablehunt.co.uk)
+* **Central Corporate Inbound:** [`info@cablehunt.co.uk`](mailto:info@cablehunt.co.uk)
+* **Mayfair Executive Headquarters:** 3rd Floor, 45 Albemarle Street, Mayfair, London, W1S 4JL, United Kingdom
+
+---
+
+*THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*

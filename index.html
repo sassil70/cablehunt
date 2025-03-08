@@ -14,7 +14,7 @@
   <meta property="og:title" content="CableHunt Networks Limited | Autonomous Optical Fibre Diagnostics">
   <meta property="og:description" content="Pioneering 12-Bit native ADC optical reflectometry, 1G-to-40G brownfield speed multiplication, and autonomous closed-loop physical remediation.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.cablehunt.co.uk">
+  <meta property="og:url" content="https://cablehunt.co.uk">
   <meta property="og:image" content="assets/images/logo.jpg">
 
   <!-- Preconnect to Google Fonts -->
@@ -194,10 +194,30 @@
           </div>
         </div>
         
+        <!-- Interactive Closed-Loop Fiber Fault Injector -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; margin-bottom: 12px;">
+          <button type="button" class="device-hotspot-btn fault-inject-btn active" data-fault="macrobend" onclick="injectFiberAnomaly('macrobend', this)">
+            ⚡ Inject Macrobend @ 42.1km (-0.78 dB)
+          </button>
+          <button type="button" class="device-hotspot-btn fault-inject-btn" data-fault="splice" onclick="injectFiberAnomaly('splice', this)">
+            🔬 Inject Splice Decay @ 31.4km (-0.08 dB)
+          </button>
+          <button type="button" class="device-hotspot-btn fault-inject-btn" data-fault="ferrule" onclick="injectFiberAnomaly('ferrule', this)">
+            🛡️ ODF Ferrule Contamination (&lt;0.8m Dead Zone)
+          </button>
+          <button type="button" class="device-hotspot-btn fault-inject-btn" data-fault="clean" onclick="injectFiberAnomaly('clean', this)">
+            ✔ Clean 80km 40G DWDM Span
+          </button>
+        </div>
+
+        <div id="scope-fault-telemetry" style="text-align: center; font-family: var(--font-mono); font-size: 0.84rem; color: var(--ch-text-secondary); background: rgba(15, 17, 22, 0.85); border: 1px solid var(--ch-border-subtle); padding: 10px 18px; border-radius: 8px; max-width: 820px; margin: 0 auto 14px auto;">
+          <span style="color:#f7941d;">● 1D-CNN DIAGNOSTIC:</span> Physical Macrobend at <strong>42.1 km</strong> (-0.78 dB L-Band drop). <strong>Netmiko BGP/OSPF protection switch triggered in 38.4 ms.</strong>
+        </div>
+
         <div style="text-align: center;">
           <button class="scope-interactive-hint" onclick="document.getElementById('scope-comparison-box').scrollIntoView({behavior:'smooth', block:'center'});">
             <span style="width: 8px; height: 8px; background: var(--ch-orange); border-radius: 50%; box-shadow: 0 0 8px var(--ch-orange);"></span>
-            <span>Interactive Comparison: Drag central slider left / right to reveal the -0.78 dB macrobend</span>
+            <span>Interactive Comparison: Drag central slider left / right or click a fault scenario above to test 12-Bit vs 8-Bit detection</span>
           </button>
         </div>
       </div>
@@ -254,11 +274,11 @@
       <div class="device-stage-wrapper">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
           <div>
-            <span class="text-orange" style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700;">INTERACTIVE 3D CAD VIEWER</span>
-            <h3 style="font-size: 1.4rem; color: #FFFFFF;">CableHunt Handheld Diagnostic Node</h3>
+            <span class="text-orange" style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700;">INTERACTIVE 3D CAD VIEWER • LIVE CANVAS OLED</span>
+            <h3 style="font-size: 1.4rem; color: #FFFFFF;">CableHunt CH-12B Handheld Diagnostic Node</h3>
           </div>
           <span style="font-size: 0.8rem; background: rgba(35, 57, 108, 0.4); padding: 4px 14px; border-radius: 9999px; border: 1px solid var(--ch-border);">
-            TOUCH &amp; DRAG TO ROTATE 360°
+            DRAG TO ROTATE 360° • SCROLL TO ZOOM
           </span>
         </div>
 
@@ -266,13 +286,14 @@
 
         <div class="device-controls-bar">
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <button class="device-hotspot-btn active" data-mode="default" onclick="setDeviceView('default')">Overview (Default)</button>
-            <button class="device-hotspot-btn" data-mode="ports" onclick="setDeviceView('ports')">Inspect Top Ports &amp; Array</button>
-            <button class="device-hotspot-btn" data-mode="scan" onclick="setDeviceView('scan')">Computer Vision Scan Mode</button>
-            <button class="device-hotspot-btn" data-mode="scope" onclick="setDeviceView('scope')">12-Bit Scope Screen</button>
+            <button type="button" class="device-hotspot-btn active" data-mode="default" onclick="setDeviceView('default', this)">Overview (360° CAD)</button>
+            <button type="button" class="device-hotspot-btn" data-mode="ports" onclick="setDeviceView('ports', this)">Top Optical &amp; RFoF Bulkhead</button>
+            <button type="button" class="device-hotspot-btn" data-mode="scan" onclick="setDeviceView('scan', this)">400x Vision Defect Probe</button>
+            <button type="button" class="device-hotspot-btn" data-mode="scope" onclick="setDeviceView('scope', this)">Live 12-Bit OLED Screen</button>
+            <button type="button" class="device-hotspot-btn" data-mode="exploded" onclick="setDeviceView('exploded', this)">🔧 Exploded X-Ray PCB View</button>
           </div>
-          <div style="font-size: 0.82rem; color: var(--ch-cyan); font-family: var(--font-mono); font-weight: 600;">
-            <span>SPECIFICATION: </span><strong class="text-orange">12-BIT NATIVE SAMPLING</strong> | <span>DEAD ZONE: </span><strong class="text-orange">&lt;0.8M</strong> | <span>STANDARD: </span><strong class="text-orange">MICE COMPLIANT</strong>
+          <div id="device-spec-readout" style="font-size: 0.82rem; color: var(--ch-cyan); font-family: var(--font-mono); font-weight: 600;">
+            <span>SPECIFICATION: </span><strong class="text-orange">12-BIT NATIVE (4,096 LEVELS)</strong> | <span>DEAD ZONE: </span><strong class="text-orange">&lt;0.8M</strong> | <span>ISOLATION: </span><strong class="text-orange">2,500Vrms FLOATING</strong>
           </div>
         </div>
       </div>
@@ -464,6 +485,9 @@
           <button class="prompt-chip-btn" onclick="window.askOpticalAI('How can network specialists arrange a collaborative technical exchange at the Birmingham testbed?')">
             <span>🏢 Birmingham Testbed Technical Session</span>
           </button>
+          <button class="prompt-chip-btn" onclick="window.askOpticalAI('Explain the 2027 GitHub Open-Source release and the 2029 Smart Optical AI Model release on Hugging Face.')">
+            <span>🤗 2027 Code &amp; 2029 Hugging Face AI Model</span>
+          </button>
         </div>
 
         <!-- In-Console Input Bar -->
@@ -512,7 +536,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
           <div>
             <h4 style="font-size: 1.25rem;">Interactive ITU-T Optical Grid Explorer</h4>
-            <p style="font-size: 0.88rem; color: var(--ch-text-secondary);\">Toggle operating wavelengths to observe real-time attenuation coefficients and automated remediation actions.</p>
+            <p style="font-size: 0.88rem; color: var(--ch-text-secondary);">Toggle operating wavelengths to observe real-time attenuation coefficients and automated remediation actions.</p>
           </div>
           <div style="text-align: right;">
             <span id="spectrum-current-wave" style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--ch-orange);">1550.0 nm</span>
@@ -524,15 +548,15 @@
 
         <!-- Band Selection Buttons -->
         <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-          <button class="device-hotspot-btn band-pill" data-band="O" onclick="selectBand(1310)">O-Band (1310nm)</button>
-          <button class="device-hotspot-btn band-pill" data-band="E" onclick="selectBand(1383)">E-Band (1383nm Water Peak)</button>
-          <button class="device-hotspot-btn band-pill" data-band="S" onclick="selectBand(1490)">S-Band (1490nm)</button>
-          <button class="device-hotspot-btn band-pill active" data-band="C" onclick="selectBand(1550)">C-Band (1550nm DWDM)</button>
-          <button class="device-hotspot-btn band-pill" data-band="L" onclick="selectBand(1600)">L-Band (1600nm)</button>
-          <button class="device-hotspot-btn band-pill" data-band="U" onclick="selectBand(1650)">U-Band (1650nm OOB OTDR)</button>
+          <button type="button" class="device-hotspot-btn band-pill" data-band="O" onclick="selectBand(1310)">O-Band (1310nm)</button>
+          <button type="button" class="device-hotspot-btn band-pill" data-band="E" onclick="selectBand(1383)">E-Band (1383nm Water Peak)</button>
+          <button type="button" class="device-hotspot-btn band-pill" data-band="S" onclick="selectBand(1490)">S-Band (1490nm)</button>
+          <button type="button" class="device-hotspot-btn band-pill active" data-band="C" onclick="selectBand(1550)">C-Band (1550nm DWDM)</button>
+          <button type="button" class="device-hotspot-btn band-pill" data-band="L" onclick="selectBand(1600)">L-Band (1600nm)</button>
+          <button type="button" class="device-hotspot-btn band-pill" data-band="U" onclick="selectBand(1650)">U-Band (1650nm OOB OTDR)</button>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; background: #0A0C10; padding: 16px 20px; border-radius: 8px; border: 1px solid var(--ch-border-subtle); flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #0A0C10; padding: 16px 20px; border-radius: 8px; border: 1px solid var(--ch-border-subtle); flex-wrap: wrap; gap: 12px; margin-bottom: 22px;">
           <div>
             <span style="font-size: 0.8rem; color: var(--ch-text-muted);">PHYSICAL LOSS ESTIMATE: </span>
             <strong id="spectrum-loss-val" class="text-orange" style="font-family: var(--font-mono); font-size: 1.1rem;">0.190 dB/km</strong>
@@ -540,6 +564,21 @@
           <div id="spectrum-action-text" style="font-size: 0.88rem; font-family: var(--font-mono);">
             <span class="text-green">✔ OPTIMAL DWDM WINDOW:</span> 0.19 dB/km minimum physical attenuation.
           </div>
+        </div>
+
+        <!-- Live 40G Optical Eye Diagram & Dispersion Compensation Preview -->
+        <div style="background: #080A0E; border: 1px solid var(--ch-border-subtle); border-radius: 10px; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--ch-orange); font-weight: 700;">LIVE 40G OPTICAL EYE DIAGRAM (2-UI RECONSTRUCTION)</span>
+              <div style="font-size: 0.82rem; color: var(--ch-text-secondary);">Compare uncompensated brownfield ISI distortion against CableHunt 12-Bit DSP pre-emphasis.</div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="device-hotspot-btn eye-mode-btn active" onclick="toggleEyeCompensation(true, this)">12-Bit DSP Compensated (40G Open)</button>
+              <button type="button" class="device-hotspot-btn eye-mode-btn" onclick="toggleEyeCompensation(false, this)">Uncompensated Legacy (ISI Closed)</button>
+            </div>
+          </div>
+          <canvas id="eye-diagram-canvas" style="width: 100%; height: 155px; display: block; border-radius: 6px; background: #05070B;"></canvas>
         </div>
       </div>
     </div>
@@ -783,8 +822,8 @@
           <p style="color: var(--ch-text-secondary); font-size: 0.92rem; line-height: 1.65; flex: 1;">
             Leads strategic executive oversight, corporate capitalisation, British commercial compliance, and institutional partnership development across UK and international telecommunications corridors.
           </p>
-          <div style="margin-top: 20px; font-size: 0.82rem; font-family: var(--font-mono); color: var(--ch-text-muted);">
-            ENQUIRIES VIA CENTRAL INBOUND
+          <div style="margin-top: 20px; font-size: 0.82rem; font-family: var(--font-mono); color: var(--ch-orange);">
+            <a href="mailto:batoul@cablehunt.co.uk" style="color: var(--ch-orange); text-decoration: none;">batoul@cablehunt.co.uk</a>
           </div>
         </div>
 
@@ -795,8 +834,8 @@
           <p style="color: var(--ch-text-secondary); font-size: 0.92rem; line-height: 1.65; flex: 1;">
             Over a decade of hands-on physical network infrastructure experience. Directs hardware manufacturing supply chains, British regulatory compliance, and international field deployment operations.
           </p>
-          <div style="margin-top: 20px; font-size: 0.82rem; font-family: var(--font-mono); color: var(--ch-text-muted);">
-            ENQUIRIES VIA CENTRAL INBOUND
+          <div style="margin-top: 20px; font-size: 0.82rem; font-family: var(--font-mono); color: var(--ch-orange);">
+            <a href="mailto:jalal@cablehunt.co.uk" style="color: var(--ch-orange); text-decoration: none;">jalal@cablehunt.co.uk</a>
           </div>
         </div>
 
@@ -807,8 +846,35 @@
           <p style="color: var(--ch-text-secondary); font-size: 0.92rem; line-height: 1.65; flex: 1;">
             Academic researcher and systems programmer. Principal architect of the core 12-bit ADC testbed, optical digital signal processing (DSP) pipeline, proprietary spectral optimisation models, and Netmiko switch drivers.
           </p>
-          <div style="margin-top: 20px; font-size: 0.82rem; font-family: var(--font-mono); color: var(--ch-text-muted);">
-            ENQUIRIES VIA CENTRAL INBOUND
+          <div style="margin-top: 20px; font-size: 0.82rem; font-family: var(--font-mono); color: var(--ch-orange);">
+            <a href="mailto:saleem@cablehunt.co.uk" style="color: var(--ch-orange); text-decoration: none;">saleem@cablehunt.co.uk</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-Stage Open-Source & Smart Optical AI Model Roadmap (2027 / 2029) -->
+      <div class="tech-card" style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(8, 12, 20, 0.98) 100%); border: 1px solid var(--ch-border);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px;">
+          <div style="flex: 1; min-width: 280px;">
+            <span class="text-orange" style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;">OPEN RESEARCH &amp; CRITICAL INFRASTRUCTURE SAFETY ROADMAP</span>
+            <h3 style="font-size: 1.45rem; color: #FFFFFF; margin: 8px 0 12px 0;">Deferred Open-Source Stack (Sept 2027) &amp; Smart Optical AI Model (2029)</h3>
+            <p style="color: var(--ch-text-secondary); font-size: 0.92rem; line-height: 1.7; margin-bottom: 16px;">
+              CableHunt is committed to verifiable British engineering. Our core Python 12-bit DSP acquisition suite, Bellcore <code class="font-mono">.SOR</code> parser, and Netmiko switch drivers will transition to an open-source licence in <strong>September 2027</strong>. Our flagship physics-informed <strong>Smart Optical AI Model (<code class="font-mono">cablehunt-optical-ai</code>)</strong> on Hugging Face is scheduled for public weights release in <strong>2029</strong> following multi-year UK Telecoms Security Act (TSA) Critical National Infrastructure safety verification.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <a href="https://github.com/sassil70/cablehunt" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="text-decoration: none;">
+                <span>★ GitHub Repository (Sept 2027 Open-Source)</span>
+              </a>
+              <a href="https://huggingface.co/sassil70/cablehunt-optical-ai" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="text-decoration: none; border-color: var(--ch-cyan); color: var(--ch-cyan);">
+                <span>🤗 Hugging Face Smart AI Model (2029 Release)</span>
+              </a>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; min-width: 240px; font-family: var(--font-mono); font-size: 0.8rem; background: #080A0E; padding: 18px; border-radius: 8px; border: 1px solid var(--ch-border-subtle);">
+            <div><span style="color: var(--ch-text-muted);">STAGE 1 (CODE):</span> <strong class="text-orange">SEPT 2027</strong></div>
+            <div><span style="color: var(--ch-text-muted);">STAGE 2 (AI MODEL):</span> <strong class="text-cyan">2029 PUBLIC WEIGHTS</strong></div>
+            <div><span style="color: var(--ch-text-muted);">ARCHITECTURE:</span> <strong class="text-green">1D-CNN + SPECTRAL PINN</strong></div>
+            <div><span style="color: var(--ch-text-muted);">COMPLIANCE:</span> <strong style="color: #FFFFFF;">UK TSA &amp; CNI AUDITED</strong></div>
           </div>
         </div>
       </div>
@@ -881,34 +947,37 @@
             </p>
           </div>
 
-          <div style="padding-top: 20px; border-top: 1px solid var(--ch-border-subtle); font-family: var(--font-mono); font-size: 0.9rem; display: flex; flex-direction: column; gap: 10px;">
+          <div style="padding-top: 20px; border-top: 1px solid var(--ch-border-subtle); font-family: var(--font-mono); font-size: 0.88rem; display: flex; flex-direction: column; gap: 10px;">
             <div>CENTRAL ENQUIRIES: <a href="mailto:info@cablehunt.co.uk" style="color: var(--ch-orange); text-decoration: none;">info@cablehunt.co.uk</a></div>
+            <div>SYSTEMS ARCHITECT: <a href="mailto:saleem@cablehunt.co.uk" style="color: var(--ch-cyan); text-decoration: none;">saleem@cablehunt.co.uk</a></div>
+            <div>OPERATIONS (COO): <a href="mailto:jalal@cablehunt.co.uk" style="color: var(--ch-cyan); text-decoration: none;">jalal@cablehunt.co.uk</a></div>
+            <div>EXECUTIVE OFFICE (CEO): <a href="mailto:batoul@cablehunt.co.uk" style="color: var(--ch-cyan); text-decoration: none;">batoul@cablehunt.co.uk</a></div>
             <div>TELEPHONE: <a href="tel:+442078702243" style="color: #FFFFFF; text-decoration: none;">+44 20 78702243</a></div>
-            <div style="color: var(--ch-text-secondary); font-size: 0.8rem; margin-top: 6px;">All inbound web submissions are dispatched directly to info@cablehunt.co.uk.</div>
+            <div style="color: var(--ch-text-secondary); font-size: 0.78rem; margin-top: 4px;">All inbound web submissions generate a Reference Ticket routed directly to @cablehunt.co.uk.</div>
           </div>
         </div>
 
         <div class="tech-card" style="padding: 32px;">
           <h3 style="font-size: 1.4rem; margin-bottom: 20px;">Request Technical Demonstration / Order</h3>
-          <form onsubmit="event.preventDefault(); alert('Thank you for your enquiry. Your submission has been transmitted to info@cablehunt.co.uk. The CableHunt executive team will respond within 24 business hours.'); this.reset();">
+          <form onsubmit="submitCableHuntEnquiry(event)">
             <div style="margin-bottom: 16px;">
-              <label style="display: block; font-size: 0.85rem; color: var(--ch-text-secondary); margin-bottom: 6px;">Full Name</label>
-              <input type="text" required placeholder="e.g. Dr. Julian Vance" style="width: 100%; padding: 12px; background: #0E1014; border: 1px solid var(--ch-border-subtle); border-radius: 6px; color: #FFFFFF; font-size: 0.9rem;">
+              <label for="contact-name" style="display: block; font-size: 0.85rem; color: var(--ch-text-secondary); margin-bottom: 6px;">Full Name</label>
+              <input id="contact-name" type="text" required placeholder="e.g. Dr. Julian Vance" style="width: 100%; padding: 12px; background: #0E1014; border: 1px solid var(--ch-border-subtle); border-radius: 6px; color: #FFFFFF; font-size: 0.9rem;">
             </div>
 
             <div style="margin-bottom: 16px;">
-              <label style="display: block; font-size: 0.85rem; color: var(--ch-text-secondary); margin-bottom: 6px;">Enterprise / Telecommunications Organisation</label>
-              <input type="text" required placeholder="e.g. Hyperscale Data Centres UK" style="width: 100%; padding: 12px; background: #0E1014; border: 1px solid var(--ch-border-subtle); border-radius: 6px; color: #FFFFFF; font-size: 0.9rem;">
+              <label for="contact-org" style="display: block; font-size: 0.85rem; color: var(--ch-text-secondary); margin-bottom: 6px;">Enterprise / Telecommunications Organisation</label>
+              <input id="contact-org" type="text" required placeholder="e.g. Hyperscale Data Centres UK" style="width: 100%; padding: 12px; background: #0E1014; border: 1px solid var(--ch-border-subtle); border-radius: 6px; color: #FFFFFF; font-size: 0.9rem;">
             </div>
 
             <div style="margin-bottom: 16px;">
-              <label style="display: block; font-size: 0.85rem; color: var(--ch-text-secondary); margin-bottom: 6px;">Official Corporate Email</label>
-              <input type="email" required placeholder="name@organisation.com" style="width: 100%; padding: 12px; background: #0E1014; border: 1px solid var(--ch-border-subtle); border-radius: 6px; color: #FFFFFF; font-size: 0.9rem;">
+              <label for="contact-email" style="display: block; font-size: 0.85rem; color: var(--ch-text-secondary); margin-bottom: 6px;">Official Corporate Email</label>
+              <input id="contact-email" type="email" required placeholder="name@organisation.co.uk" style="width: 100%; padding: 12px; background: #0E1014; border: 1px solid var(--ch-border-subtle); border-radius: 6px; color: #FFFFFF; font-size: 0.9rem;">
             </div>
 
             <div style="margin-bottom: 20px;">
-              <label style="display: block; font-size: 0.85rem; color: var(--ch-text-secondary); margin-bottom: 6px;">Primary Area of Interest</label>
-              <select style="width: 100%; padding: 12px; background: #0E1014; border: 1px solid var(--ch-border-subtle); border-radius: 6px; color: #FFFFFF; font-size: 0.9rem;">
+              <label for="contact-topic" style="display: block; font-size: 0.85rem; color: var(--ch-text-secondary); margin-bottom: 6px;">Primary Area of Interest</label>
+              <select id="contact-topic" style="width: 100%; padding: 12px; background: #0E1014; border: 1px solid var(--ch-border-subtle); border-radius: 6px; color: #FFFFFF; font-size: 0.9rem;">
                 <option>Commercial Hardware Unit Procurement</option>
                 <option>1G to 40G Speed Multiplier Brownfield Upgrade</option>
                 <option>Birmingham Testbed Facility Technical Session</option>
@@ -921,6 +990,7 @@
               Submit Corporate Inbound Request
             </button>
           </form>
+          <div id="contact-ticket-confirmation" style="display: none;"></div>
         </div>
       </div>
     </div>
@@ -935,7 +1005,7 @@
         <div>
           <img src="assets/images/logo.svg" alt="CableHunt Networks Logo" style="height: 46px; margin-bottom: 18px;">
           <p style="color: var(--ch-text-secondary); font-size: 0.88rem; line-height: 1.6; max-width: 380px;">
-            CableHunt Networks Limited is a British optical telemetry and network remediation company incorporated under the Companies Act 2006. Registered in England &amp; Wales (Company No. 16093071).
+            CableHunt Networks Limited is a British optical telemetry and network remediation company incorporated under the Companies Act 2006. Registered in England &amp; Wales (Company No. 16093071). Official Portal: <strong style="color: #FFFFFF;">cablehunt.co.uk</strong>
           </p>
         </div>
 
@@ -962,22 +1032,26 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">Connect &amp; Social</h4>
+          <h4 class="footer-col-title">Connect &amp; Open Research</h4>
           <p style="font-size: 0.84rem; color: var(--ch-text-secondary); margin-bottom: 14px;">
-            Official Channels &amp; Professional Network
+            Official Channels, GitHub (2027) &amp; Hugging Face (2029)
           </p>
-          <div style="display: flex; gap: 12px; margin-top: 14px;">
+          <div style="display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap;">
             <!-- Official Company LinkedIn -->
-            <a href="https://www.linkedin.com/company/cablehunt-networks/" target="_blank" rel="noopener" aria-label="CableHunt LinkedIn Page" style="color: #FFFFFF; font-size: 1.1rem; background: #1B1E26; width: 38px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
+            <a href="https://www.linkedin.com/company/cablehunt-networks/" target="_blank" rel="noopener" aria-label="CableHunt LinkedIn Page" style="color: #FFFFFF; font-size: 1rem; background: #1B1E26; width: 38px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
               in
             </a>
             <!-- X / Twitter -->
-            <a href="https://x.com/CableHuntUK" target="_blank" rel="noopener" aria-label="CableHunt X Channel" style="color: #FFFFFF; font-size: 1.1rem; background: #1B1E26; width: 38px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
+            <a href="https://x.com/CableHuntUK" target="_blank" rel="noopener" aria-label="CableHunt X Channel" style="color: #FFFFFF; font-size: 1rem; background: #1B1E26; width: 38px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
               𝕏
             </a>
             <!-- GitHub -->
-            <a href="https://github.com/cablehunt" target="_blank" rel="noopener" aria-label="CableHunt GitHub Repository" style="color: #FFFFFF; font-size: 1.1rem; background: #1B1E26; width: 38px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
-              git
+            <a href="https://github.com/sassil70/cablehunt" target="_blank" rel="noopener" aria-label="CableHunt GitHub Repository" title="GitHub Repository (Open-Source Sept 2027)" style="color: var(--ch-orange); font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700; background: #1B1E26; padding: 0 12px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
+              GitHub
+            </a>
+            <!-- Hugging Face -->
+            <a href="https://huggingface.co/sassil70/cablehunt-optical-ai" target="_blank" rel="noopener" aria-label="CableHunt Hugging Face Model Hub" title="Hugging Face Smart Optical AI Model (2029 Release)" style="color: var(--ch-cyan); font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700; background: #1B1E26; padding: 0 12px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
+              🤗 HF 2029
             </a>
           </div>
         </div>
@@ -987,14 +1061,29 @@
         <div>
           &copy; 2024&ndash;2026 CableHunt Networks Limited. All rights reserved. Registered in England &amp; Wales.
         </div>
-        <div style="display: flex; gap: 20px;">
-          <a href="#" style="color: var(--ch-text-muted); text-decoration: none;">Privacy Policy</a>
-          <a href="#" style="color: var(--ch-text-muted); text-decoration: none;">Terms of Service</a>
-          <a href="#contact" style="color: var(--ch-text-muted); text-decoration: none;">Central Inbound: info@cablehunt.co.uk</a>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <a href="#privacy" onclick="openLegalModal('privacy', event)" style="color: var(--ch-text-muted); text-decoration: none;">Privacy Policy</a>
+          <a href="#terms" onclick="openLegalModal('terms', event)" style="color: var(--ch-text-muted); text-decoration: none;">Terms &amp; Open Roadmap (2027/2029)</a>
+          <a href="mailto:info@cablehunt.co.uk" style="color: var(--ch-orange); text-decoration: none;">Central Inbound: info@cablehunt.co.uk</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- ====================================================================
+       Legal, Privacy & Open-Release Roadmap Modal Dialog
+       ==================================================================== -->
+  <div id="ch-legal-modal" role="dialog" aria-modal="true" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(5, 8, 15, 0.82); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: #0F1116; border: 1px solid var(--ch-border); border-radius: 12px; max-width: 640px; width: 100%; padding: 28px; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,0.75);">
+      <button type="button" onclick="closeLegalModal()" style="position: absolute; top: 18px; right: 20px; background: none; border: none; color: #9CA3AF; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      <div id="ch-modal-badge" style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--ch-orange); font-weight: 700; margin-bottom: 6px;">UK GDPR &amp; GOVERNANCE</div>
+      <h3 id="ch-modal-title" style="font-size: 1.35rem; color: #FFFFFF; margin-bottom: 16px;">Policy &amp; Licensing</h3>
+      <div id="ch-modal-body" style="color: var(--ch-text-secondary); font-size: 0.92rem; line-height: 1.65;"></div>
+      <div style="margin-top: 22px; text-align: right;">
+        <button type="button" class="btn btn-primary btn-sm" onclick="closeLegalModal()">Close Window</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ====================================================================
        Floating Global Optical AI Assistant Drawer
@@ -1010,7 +1099,7 @@
         <span class="badge-dot"></span>
         <div>
           <strong style="color: #FFFFFF; font-size: 0.95rem;">CableHunt Autonomous Optical AI</strong>
-          <div style="font-size: 0.72rem; color: var(--ch-orange); font-family: var(--font-mono);">POWERED BY GEMINI PRO • BRITISH TECHNICAL ENGLISH</div>
+          <div style="font-size: 0.72rem; color: var(--ch-orange); font-family: var(--font-mono);">POWERED BY GEMINI 2.5 • BRITISH TECHNICAL ENGLISH</div>
         </div>
       </div>
       <button id="ai-chat-close" style="background: none; border: none; color: #9CA3AF; font-size: 1.2rem; cursor: pointer;">&times;</button>
@@ -1018,7 +1107,7 @@
 
     <div class="ai-chat-body" id="ai-chat-body">
       <div class="chat-bubble chat-bubble-bot">
-        Welcome to CableHunt Networks. I am your autonomous physical-layer optical assistant. Ask me about 12-Bit native sampling, our 1G-to-40G brownfield multiplier, or closed-loop switch remediation.
+        Welcome to CableHunt Networks (cablehunt.co.uk). I am your autonomous physical-layer optical assistant. Ask me about 12-Bit native sampling, our 1G-to-40G brownfield multiplier, closed-loop switch remediation, or our 2027/2029 open roadmap.
       </div>
     </div>
 
@@ -1038,7 +1127,7 @@
   <script src="assets/js/roi-calculator.js"></script>
   <script src="assets/js/spectrum-tuner.js"></script>
   <script src="assets/js/live-terminal.js"></script>
-  <script src="assets/js/config.js" onerror="console.info('Running without local config.js; AI queries will fallback or await user configuration.')"></script>
+  <script src="assets/js/config.js" onerror="console.info('Running without local config.js; AI queries will use built-in Optical DSP Knowledge Core.')"></script>
   <script src="assets/js/gemini-ai.js"></script>
 
 </body>

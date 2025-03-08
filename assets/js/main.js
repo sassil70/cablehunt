@@ -1,101 +1,157 @@
 /**
- * CableHunt Networks Limited - Main UI Controller
- * Handles navigation states, smooth scrolling, animated counters, and interactive tabs.
+ * CableHunt — Core UI Controller, Executive Contact Dispatch & Legal/Roadmap Modal Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Header Sticky & Scroll Class
-  const header = document.querySelector('.site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+    const navbar = document.querySelector('.site-header') || document.getElementById('main-navbar');
+    const mobileMenuBtn = document.getElementById('mobile-menu-toggle') || document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('primary-nav-menu') || document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id], header[id]');
 
-  // 2. Mobile Menu Toggle
-  const mobileToggle = document.getElementById('mobile-menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+    window.closeMobileNav = () => {
+        if (navMenu) {
+            navMenu.classList.remove('open');
+            navMenu.classList.remove('active');
+        }
+        if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove('active');
+        }
+    };
 
-  window.closeMobileNav = function () {
-    if (navMenu) navMenu.classList.remove('open');
-    if (mobileToggle) mobileToggle.classList.remove('active');
-  };
+    // 1. Navbar Glass Effect & Scroll-Spy
+    window.addEventListener('scroll', () => {
+        if (navbar) {
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
 
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      mobileToggle.classList.toggle('active');
-    });
-  }
-
-  // 3. Smooth Anchor Scrolling
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        const headerOffset = 90;
-        const elementPosition = targetEl.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+        let currentSection = '';
+        sections.forEach(sec => {
+            const sectionTop = sec.offsetTop - 140;
+            const sectionHeight = sec.offsetHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSection = sec.getAttribute('id');
+            }
         });
 
-        // Close mobile nav if open
-        window.closeMobileNav();
-      }
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
     });
-  });
 
-  // 4. Animated Counters on Scroll
-  const counters = document.querySelectorAll('.stat-number[data-target]');
-  const speed = 200;
+    // 2. Mobile Hamburger Menu Toggle
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
 
-  const countUp = (counter) => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText.replace(/[^0-9.]/g, '');
-    const inc = target / speed;
-
-    if (count < target) {
-      const current = Math.ceil(count + inc);
-      const prefix = counter.getAttribute('data-prefix') || '';
-      const suffix = counter.getAttribute('data-suffix') || '';
-      counter.innerText = `${prefix}${current}${suffix}`;
-      setTimeout(() => countUp(counter), 20);
-    } else {
-      const prefix = counter.getAttribute('data-prefix') || '';
-      const suffix = counter.getAttribute('data-suffix') || '';
-      counter.innerText = `${prefix}${target}${suffix}`;
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                window.closeMobileNav();
+            });
+        });
     }
-  };
-
-  const observerOptions = { threshold: 0.5 };
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        countUp(entry.target);
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  counters.forEach(c => observer.observe(c));
-
-  // 5. Research Tabs Toggle
-  window.switchResearchTab = function (tabId) {
-    document.querySelectorAll('.research-tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.research-tab-content').forEach(content => content.classList.remove('active'));
-
-    const activeBtn = document.querySelector(`.research-tab-btn[data-tab="${tabId}"]`);
-    const activeContent = document.getElementById(`tab-${tabId}`);
-
-    if (activeBtn) activeBtn.classList.add('active');
-    if (activeContent) activeContent.classList.add('active');
-  };
 });
+
+// 3. Executive Contact Form Dispatch (Reference Ticket + Direct Mailto to @cablehunt.co.uk)
+window.submitCableHuntEnquiry = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = (form.querySelector('#contact-name')?.value || 'Optical Partner').trim();
+    const org = (form.querySelector('#contact-org')?.value || 'Enterprise Network').trim();
+    const email = (form.querySelector('#contact-email')?.value || '').trim();
+    const topic = (form.querySelector('#contact-topic')?.value || 'Technical & Pilot Enquiry').trim();
+    const message = (form.querySelector('#contact-message')?.value || '').trim();
+
+    const ticketNum = 'CH-UK-2026-' + Math.floor(1000 + Math.random() * 9000);
+    const feedbackContainer = document.getElementById('contact-ticket-confirmation');
+
+    const mailSubject = encodeURIComponent(`[${ticketNum}] ${topic} — ${name} (${org})`);
+    const mailBody = encodeURIComponent(
+        `Reference Ticket: ${ticketNum}\n` +
+        `Sender Name: ${name}\n` +
+        `Organisation: ${org}\n` +
+        `Sender Email: ${email}\n` +
+        `Primary Area of Interest: ${topic}\n` +
+        (message ? `Additional Notes:\n${message}\n` : '') +
+        `\n---\nDispatched via cablehunt.co.uk Official Portal`
+    );
+    const mailtoUrl = `mailto:info@cablehunt.co.uk?cc=saleem@cablehunt.co.uk,jalal@cablehunt.co.uk,batoul@cablehunt.co.uk&subject=${mailSubject}&body=${mailBody}`;
+
+    if (feedbackContainer) {
+        feedbackContainer.style.display = 'block';
+        feedbackContainer.innerHTML = `
+            <div style="padding: 20px; border-radius: 10px; background: rgba(16, 185, 129, 0.09); border: 1px solid rgba(16, 185, 129, 0.35); margin-top: 18px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #10B981; font-weight: 700;">
+                        ✔ DISPATCH LOGGED // REF TICKET: ${ticketNum}
+                    </span>
+                    <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ch-orange);">
+                        SLA: &lt; 24h UK Engineering Desk
+                    </span>
+                </div>
+                <p style="font-size: 0.88rem; color: #E5E7EB; line-height: 1.6; margin-bottom: 14px;">
+                    Thank you, <strong>${name.replace(/</g, '&lt;')}</strong> (<em>${org.replace(/</g, '&lt;')}</em>). Your request regarding <strong>${topic.replace(/</g, '&lt;')}</strong> has been logged for our Mayfair &amp; Birmingham desks (<strong>info@cablehunt.co.uk</strong>, <strong>saleem@cablehunt.co.uk</strong>, <strong>jalal@cablehunt.co.uk</strong>, and <strong>batoul@cablehunt.co.uk</strong>).
+                </p>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <a href="${mailtoUrl}" class="btn btn-primary btn-sm" style="text-decoration:none;">
+                        Open Direct Email Dispatch (.SOR Trace Ready) &rarr;
+                    </a>
+                    <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('contact-ticket-confirmation').style.display='none';">
+                        Dismiss
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    form.reset();
+};
+
+// 4. Legal, Privacy & Open-Release Roadmap Modal Controller
+const legalModalContent = {
+    privacy: {
+        badge: 'UK GDPR & DATA PROTECTION ACT 2018',
+        title: 'Privacy Policy & Optical Telemetry Governance',
+        body: `
+            <p style="margin-bottom:12px;"><strong>1. Data Controller &amp; UK Jurisdiction:</strong> CableHunt Networks Limited (Company No. 16093071, operating via <code>cablehunt.co.uk</code> at 3rd Floor, 45 Albemarle Street, Mayfair, London, W1S 4JL) processes corporate contact records and optical testbed telemetry in strict accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+            <p style="margin-bottom:12px;"><strong>2. Optical Telemetry &amp; .SOR Trace Confidentiality:</strong> All Bellcore <code>.SOR</code> reflectometry traces, DWDM spectral logs, and duct coordinates shared with our Birmingham engineering facility are isolated under strict non-disclosure protocols.</p>
+            <p style="margin-bottom:12px;"><strong>3. Direct Executive Routing:</strong> Inbound submissions are routed exclusively to our authorised UK leadership desks (<code>info@cablehunt.co.uk</code>, <code>saleem@cablehunt.co.uk</code>, <code>jalal@cablehunt.co.uk</code>, and <code>batoul@cablehunt.co.uk</code>).</p>
+        `
+    },
+    terms: {
+        badge: 'INTELLECTUAL PROPERTY & TWO-STAGE OPEN ROADMAP',
+        title: 'Terms of Service, Software (2027) & Smart AI Model (2029)',
+        body: `
+            <p style="margin-bottom:12px;"><strong>1. Private Evaluation Licence:</strong> All source code, 12-bit DSP schematics, and interactive visualisations published on <code>cablehunt.co.uk</code> and <a href="https://github.com/sassil70/cablehunt" target="_blank" style="color:#f7941d;">github.com/sassil70/cablehunt</a> are licensed for private technical evaluation and academic inspection only. Commercial redistribution is prohibited prior to our scheduled open milestones.</p>
+            <p style="margin-bottom:12px;"><strong>2. Stage 1 — Open-Source Software Stack (September 2027):</strong> Following completion of UK/PCT patent prosecution and Birmingham 80km G.652.D carrier benchmarking, the core Python acquisition software, <code>.SOR</code> parser, and Netmiko automation drivers will become Open-Source in <strong>September 2027</strong>.</p>
+            <p style="margin-bottom:12px;"><strong>3. Stage 2 — Smart Optical AI Model on Hugging Face (2029):</strong> The pre-trained weights and physics-informed 1D-CNN/Transformer optical foundation model hosted at <a href="https://huggingface.co/sassil70/cablehunt-optical-ai" target="_blank" style="color:#10b981;">huggingface.co/sassil70/cablehunt-optical-ai</a> are scheduled for open public release in <strong>2029</strong>, following multi-year UK Telecoms Security Act (TSA) Critical National Infrastructure safety verification.</p>
+        `
+    }
+};
+
+window.openLegalModal = (type, event) => {
+    if (event) event.preventDefault();
+    const modal = document.getElementById('ch-legal-modal');
+    const data = legalModalContent[type] || legalModalContent.terms;
+    if (!modal) return;
+
+    document.getElementById('ch-modal-badge').textContent = data.badge;
+    document.getElementById('ch-modal-title').textContent = data.title;
+    document.getElementById('ch-modal-body').innerHTML = data.body;
+    modal.style.display = 'flex';
+};
+
+window.closeLegalModal = () => {
+    const modal = document.getElementById('ch-legal-modal');
+    if (modal) modal.style.display = 'none';
+};
