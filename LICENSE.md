@@ -22,7 +22,7 @@ Prior to **1 September 2027**, permission is hereby granted, free of charge, to 
 Effective automatically on **1 September 2027** ("Stage 1 Conversion Date"), the core software stack, Python 12-bit DSP acquisition utilities, Bellcore `.SOR` parser, and Netmiko switch orchestration scripts hosted in [`https://github.com/sassil70/cablehunt`](https://github.com/sassil70/cablehunt) shall transition to a standard permissive **Open-Source License (Apache License 2.0 / MIT License)**.
 
 ### Stage 2 — Smart Optical AI Model Public Weights Release (2029)
-The pre-trained weights, physics-informed 1D-CNN + Spectral Transformer architecture, and carrier-grade 12-bit `.SOR` training corpus for the **CableHunt Smart Optical AI Model** hosted at [`https://huggingface.co/sassil70/cablehunt-optical-ai`](https://huggingface.co/sassil70/cablehunt-optical-ai) are scheduled for open public release in **2029** ("Stage 2 AI Release Date"), following completion of:
+The pre-trained weights, physics-informed 1D-CNN + Spectral Transformer architecture, and carrier-grade 12-bit `.SOR` training corpus for the **CableHunt Smart Optical AI Model** hosted at [`https://huggingface.co/sassil/cablehunt-optical-ai`](https://huggingface.co/sassil/cablehunt-optical-ai) are scheduled for open public release in **2029** ("Stage 2 AI Release Date"), following completion of:
 - Multi-winter UK carrier endurance validation across 80 km G.652.D / G.657.A1 spans;
 - Class 1M laser power ceiling and adversarial optical injection safety audits;
 - Critical National Infrastructure (CNI) security compliance under the **UK Telecommunications (Security) Act**.

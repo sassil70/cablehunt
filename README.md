@@ -4,7 +4,7 @@
 ### *Smarter 12-bit optical diagnostics and 40G line-rates — without digging up the high street.*
 
 [![GitHub Stars](https://img.shields.io/github/stars/sassil70/cablehunt?style=flat-square&logo=github&color=F7941D)](https://github.com/sassil70/cablehunt/stargazers)
-[![Hugging Face Smart AI Model](https://img.shields.io/badge/Hugging%20Face-Smart%20Optical%20AI%20(2029%20Release)-FFD21E?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/sassil70/cablehunt-optical-ai)
+[![Hugging Face Smart AI Model](https://img.shields.io/badge/Hugging%20Face-Smart%20Optical%20AI%20(2029%20Release)-FFD21E?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/sassil/cablehunt-optical-ai)
 [![Software Open Source](https://img.shields.io/badge/Software%20Open%20Source-Sept%202027-blue?style=flat-square)](LICENSE.md)
 [![AI Weights Open Release](https://img.shields.io/badge/AI%20Model%20Weights-2029%20Public%20Release-10B981?style=flat-square)](huggingface-model-card/README.md)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-brightgreen?style=flat-square&logo=github)](https://sassil70.github.io/cablehunt/)
@@ -66,7 +66,7 @@ We packed dual-domain TDR (for copper/coax/hybrid lines), 12-bit OTDR, **RF over
 ### 🧠 The Smart Optical AI Model on Hugging Face (Confirmed 2029 Public Release)
 
 You probably spotted the badge pointing to our Hugging Face repository under the `sassil70` account:  
-👉 **[https://huggingface.co/sassil70/cablehunt-optical-ai](https://huggingface.co/sassil70/cablehunt-optical-ai)**  
+👉 **[https://huggingface.co/sassil/cablehunt-optical-ai](https://huggingface.co/sassil/cablehunt-optical-ai)**  
 📄 *(Full local Model Card & Architecture Spec available in [`huggingface-model-card/README.md`](huggingface-model-card/README.md))*
 
 #### What is the Smart Optical AI Model (`cablehunt-optical-ai`)?
@@ -122,7 +122,7 @@ cablehunt/
 ├── docs/
 │   └── ARCHITECTURE_AND_DSP_GUIDE.md        # Deep-dive: 12-Bit SNR math, Floating-Ground rig & 40G link budget
 └── huggingface-model-card/
-    ├── README.md                            # Official Hugging Face Model Card (sassil70/cablehunt-optical-ai)
+    ├── README.md                            # Official Hugging Face Model Card (sassil/cablehunt-optical-ai)
     ├── config.json                          # 1D-CNN + Spectral Transformer architecture configuration
     └── publish_to_huggingface.py            # Automated script to sync model card & configs to Hugging Face Hub
 ```

@@ -82,6 +82,6 @@ When the **Smart Optical AI Model (`cablehunt-optical-ai`)** detects a severe ph
 | Milestone | Target Date | Repository | Scope |
 | :--- | :--- | :--- | :--- |
 | **Stage 1: Open Software** | **September 2027** | [`github.com/sassil70/cablehunt`](https://github.com/sassil70/cablehunt) | Core Python 12-bit DSP suite, `.SOR` parser & Netmiko CLI drivers |
-| **Stage 2: Smart AI Model** | **2029** | [`huggingface.co/sassil70/cablehunt-optical-ai`](https://huggingface.co/sassil70/cablehunt-optical-ai) | Pre-trained 1D-CNN + Spectral PINN weights & 12-bit `.SOR` dataset |
+| **Stage 2: Smart AI Model** | **2029** | [`huggingface.co/sassil/cablehunt-optical-ai`](https://huggingface.co/sassil/cablehunt-optical-ai) | Pre-trained 1D-CNN + Spectral PINN weights & 12-bit `.SOR` dataset |
 
 For technical questions or Birmingham 80 km testbed sessions: **[`info@cablehunt.co.uk`](mailto:info@cablehunt.co.uk)** | **[`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk)** | **[`jalal@cablehunt.co.uk`](mailto:jalal@cablehunt.co.uk)**.

@@ -1,7 +1,7 @@
 """
 CableHunt Networks Limited (cablehunt.co.uk)
-Automated Publisher for Hugging Face Model Hub: https://huggingface.co/sassil70/cablehunt-optical-ai
-Uploads the official Smart Optical AI Model Card (confirming 2029 public weights release) and config.json.
+Automated Publisher for Hugging Face Model Hub: https://huggingface.co/sassil/cablehunt-optical-ai
+Uploads the official Smart Optical AI Model Card (confirming 2029 public weights release), config.json, and model_architecture.py.
 """
 
 import os
@@ -16,11 +16,22 @@ except ImportError:
     pass
 
 
-def main():
+def load_hf_token() -> str:
     token = os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN")
+    if token:
+        return token.strip()
+    env_file = pathlib.Path.home() / ".env"
+    if env_file.exists():
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            if line.startswith("HF_TOKEN="):
+                return line.split("=", 1)[1].strip()
+    return ""
+
+
+def main():
+    token = load_hf_token()
     if not token:
         print("[ERROR] HF_TOKEN not found in environment or ~/.env.")
-        print("Please save your Hugging Face Write Token first, then re-run this script.")
         sys.exit(1)
 
     try:
@@ -31,13 +42,15 @@ def main():
         from huggingface_hub import HfApi
 
     api = HfApi(token=token)
-    repo_id = "sassil70/cablehunt-optical-ai"
+    user_info = api.whoami()
+    username = user_info.get("name", "sassil")
+    repo_id = f"{username}/cablehunt-optical-ai"
     folder_path = pathlib.Path(__file__).resolve().parent
 
     print(f"[INFO] Creating / verifying Hugging Face model repository: {repo_id} ...")
     api.create_repo(repo_id=repo_id, repo_type="model", exist_ok=True, private=False)
 
-    for filename in ["README.md", "config.json"]:
+    for filename in ["README.md", "config.json", "model_architecture.py"]:
         file_path = folder_path / filename
         if file_path.exists():
             print(f"[UPLOAD] Pushing {filename} to {repo_id} ...")

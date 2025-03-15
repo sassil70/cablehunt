@@ -15,13 +15,13 @@ tags:
 license: other
 license_name: cablehunt-deferred-open-weights-2029
 library_name: pytorch
-pipeline_tag: time-series-classification
+pipeline_tag: time-series-forecasting
 ---
 
 # 🤗 CableHunt Smart Optical AI (`cablehunt-optical-ai`)
 ### *Physics-Informed 1D-CNN & Spectral Transformer for 12-Bit Optical Reflectometry & 40G Brownfield Remediation*
 
-[![Scheduled Public Weights Release](https://img.shields.io/badge/Public%20Weights%20Release-Confirmed%202029-10B981?style=flat-square)](https://huggingface.co/sassil70/cablehunt-optical-ai)
+[![Scheduled Public Weights Release](https://img.shields.io/badge/Public%20Weights%20Release-Confirmed%202029-10B981?style=flat-square)](https://huggingface.co/sassil/cablehunt-optical-ai)
 [![Software Repo](https://img.shields.io/badge/GitHub%20Software%20Stack-Sept%202027%20Open%20Source-F7941D?style=flat-square&logo=github)](https://github.com/sassil70/cablehunt)
 [![Official UK Portal](https://img.shields.io/badge/Official%20Portal-cablehunt.co.uk-0052CC?style=flat-square)](https://cablehunt.co.uk)
 
