@@ -83,7 +83,7 @@ This model directly controls optical launch power, DWDM channel allocation, and 
 Therefore, we operate a strict **Two-Stage Open Release Schedule**:
 
 ```
-   TODAY (2026)                     SEPTEMBER 2027                         2029 RELEASE
+   2025                     SEPTEMBER 2027                         2029 RELEASE
         │                                  │                                    │
         ▼                                  ▼                                    ▼
 ┌───────────────────────┐      ┌───────────────────────────┐      ┌──────────────────────────────┐

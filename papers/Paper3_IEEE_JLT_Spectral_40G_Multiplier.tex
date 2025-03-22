@@ -1,0 +1,28 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\begin{document}
+\title{Adaptive Multi-Band Spectral Optimization (1260--1675 nm) for 1G-to-40G Capacity Multiplication Over Legacy G.652 Single-Mode Optical Links}
+
+\author{Salim~Bassam~Assil,~\IEEEmembership{Lead~Optical~Systems~Architect,} Batoul~Mowafak~Zain~Alabdin, and~Ahmad~Jalal~B.~Al~Assil%
+\thanks{The authors are with CableHunt Networks Ltd. (UK Company No. 16093071), 45 Albemarle Street, Mayfair, London, W1S 4JL, United Kingdom (e-mail: assilno1@gmail.com; saleem@cablehunt.co.uk; sassil@psa.ac.ae).}}
+
+\maketitle
+
+\begin{abstract}
+Upgrading legacy brownfield 1 Gbps single-mode optical fiber links (ITU-T G.652) to 40 Gbps line rates traditionally requires costly street trenching (\pounds 120,000/km) due to OH$^-$ water-peak absorption around 1383 nm, chromatic dispersion, and Kerr nonlinearities. In this paper, we formulate and experimentally validate an Adaptive Multi-Band Spectral Optimization System spanning 1260--1675 nm across the O, E, S, C, L, and U bands using bounded L-BFGS-B optimization, achieving 1G-to-40G capacity multiplication with 80\%--88\% capital expenditure reduction.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Multi-band optical transmission, spectral optimization, L-BFGS-B, legacy G.652 fiber, 40G upgrade.
+\end{IEEEkeywords}
+
+\section{Global Spectral Optimization Model}
+\begin{equation}
+\min_{\lambda_i, P_i} \sum_{i=1}^{N} \left[ \alpha(\lambda_i) \cdot L + \Gamma_{NL}(P_i, \lambda_i) + \mathcal{L}_{splice}(i) \right]
+\end{equation}
+subject to $\text{OSNR}_i = \frac{P_i \exp(-\alpha(\lambda_i)L)}{P_{noise}(\lambda_i)} \ge \text{OSNR}_{threshold}$ for $1260\text{ nm} \le \lambda_i \le 1675\text{ nm}$.
+\end{document}

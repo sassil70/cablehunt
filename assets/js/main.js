@@ -72,7 +72,7 @@ window.submitCableHuntEnquiry = (event) => {
     const topic = (form.querySelector('#contact-topic')?.value || 'Technical & Pilot Enquiry').trim();
     const message = (form.querySelector('#contact-message')?.value || '').trim();
 
-    const ticketNum = 'CH-UK-2026-' + Math.floor(1000 + Math.random() * 9000);
+    const ticketNum = 'CH-UK-2025-' + Math.floor(1000 + Math.random() * 9000);
     const feedbackContainer = document.getElementById('contact-ticket-confirmation');
 
     const mailSubject = encodeURIComponent(`[${ticketNum}] ${topic} — ${name} (${org})`);

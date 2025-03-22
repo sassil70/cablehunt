@@ -1,6 +1,6 @@
 # CableHunt Deferred Open-Source & Smart AI Governance License
 
-**Copyright (c) 2024–2026 CableHunt Networks Limited (UK Company No. 16093071) & Eng. Saleem Asseel.**  
+**Copyright (c) 2024–2025 CableHunt Networks Limited (UK Company No. 16093071) & Eng. Saleem Asseel.**  
 **Official Domain:** [https://cablehunt.co.uk](https://cablehunt.co.uk)  
 **All Rights Reserved (Subject to the Two-Stage Open Transition Schedule below).**
 

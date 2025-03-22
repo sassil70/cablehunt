@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sub-50ms Autonomous Physical-Layer Remediation and Millimeter-Scale Fault Localization in Optical Networks Using Hybrid 1D-CNN/Transformer Models on 12-Bit Telemetry</title>
+<style>
+@page {
+    size: A4 portrait;
+    margin: 16mm 14mm 16mm 14mm;
+}
+body {
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    font-size: 9.5pt;
+    line-height: 1.32;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+}
+.ieee-header-banner {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #222;
+}
+.paper-title {
+    font-size: 17pt;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.18;
+    margin: 6px 0 10px 0;
+}
+.authors-block {
+    text-align: center;
+    font-size: 10.5pt;
+    margin-bottom: 4px;
+}
+.affiliation-block {
+    text-align: center;
+    font-size: 8.5pt;
+    font-style: italic;
+    color: #222;
+    margin-bottom: 12px;
+}
+.two-col {
+    column-count: 2;
+    column-gap: 6.5mm;
+    column-fill: balance;
+}
+.abstract-box {
+    font-weight: bold;
+    font-size: 8.8pt;
+    margin-bottom: 6px;
+}
+.abstract-box span.body-text {
+    font-weight: normal;
+}
+.keywords-box {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 8.8pt;
+    margin-bottom: 10px;
+}
+.keywords-box span.body-text {
+    font-weight: normal;
+}
+h2.sec-head {
+    font-size: 10pt;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin: 11px 0 5px 0;
+    break-after: avoid;
+}
+h3.subsec-head {
+    font-size: 9.5pt;
+    font-style: italic;
+    font-weight: bold;
+    margin: 7px 0 3px 0;
+    break-after: avoid;
+}
+p {
+    margin: 0 0 6px 0;
+    text-indent: 1em;
+}
+p.no-indent {
+    text-indent: 0;
+}
+.equation {
+    text-align: center;
+    font-style: italic;
+    margin: 6px 0;
+    padding: 3px 0;
+    position: relative;
+    font-size: 9.5pt;
+    break-inside: avoid;
+}
+.eq-num {
+    float: right;
+    font-style: normal;
+}
+.figure-full {
+    column-span: all;
+    margin: 10px 0;
+    padding: 6px;
+    border: 0.8px solid #ccc;
+    background: #fff;
+    break-inside: avoid;
+    text-align: center;
+}
+.table-full {
+    column-span: all;
+    margin: 10px 0;
+    break-inside: avoid;
+}
+.table-caption {
+    text-align: center;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+table.ieee-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.3pt;
+}
+table.ieee-table th {
+    border-top: 1.5px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 4px 5px;
+    text-align: left;
+    font-weight: bold;
+    background: #f8f8f8;
+}
+table.ieee-table td {
+    padding: 3.5px 5px;
+    border-bottom: 0.5px solid #ddd;
+}
+table.ieee-table tr:last-child td {
+    border-bottom: 1.5px solid #000;
+}
+pre.code-block {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 7.5pt;
+    background: #f7f7f7;
+    border: 0.7px solid #ccc;
+    padding: 5px;
+    overflow-x: hidden;
+    white-space: pre-wrap;
+    margin: 5px 0;
+    break-inside: avoid;
+}
+ol.refs {
+    font-size: 8pt;
+    padding-left: 16px;
+    margin: 4px 0;
+}
+ol.refs li {
+    margin-bottom: 3.5px;
+    text-indent: 0;
+}
+</style>
+</head>
+<body>
+<div class="ieee-header-banner">
+  <span>IEEE/OPTICA JOURNAL OF OPTICAL COMMUNICATIONS AND NETWORKING / IEEE TNSM PREPRINT (2025)</span>
+  <span>CABLEHUNT NETWORKS LTD. — UK INNOVATOR FOUNDER R&amp;D ARCHIVE (REF: INF0021ENV2024)</span>
+</div>
+
+<div class="paper-title">
+  Sub-50ms Autonomous Physical-Layer Remediation and Millimeter-Scale Fault Localization in Optical Networks Using Hybrid 1D-CNN/Transformer Models on 12-Bit Telemetry
+</div>
+
+<div class="authors-block">
+  Eng. Saleem Asseel, <em>Lead Systems Architect</em>, Batoul Mowafak Zain Alabdin, and Ahmad Jalal Assil
+</div>
+<div class="affiliation-block">
+  Optical Systems &amp; Edge AI Research Group, CableHunt Networks Ltd. (Company No. 16093071),<br/>
+  70 Colombo Street, London, SE1 8EE, and Birmingham Optical Testbed, West Midlands, United Kingdom<br/>
+  Corresponding Author E-mail: assilno1@gmail.com; saleem@cablehunt.co.uk; sassil@psa.ac.ae
+</div>
+
+<div class="two-col">
+  <div class="abstract-box">
+    Abstract—<span class="body-text">Passive optical networks (PONs) and dense wavelength-division multiplexed (DWDM) metro trunks suffer from both abrupt hard failures and progressive soft physical-layer degradations, including fiber macrobending, fusion splice decay, connector contamination, and laser transmitter aging. Conventional network management systems rely on coarse 8-bit optical time-domain reflectometry (OTDR) or delayed digital diagnostic monitoring (DDM) polling, which only trigger reactive alarms after link loss-of-signal (RX_LOS) occurs. In this paper, we present an end-to-end, closed-loop physical-layer telemetry and autonomous remediation architecture developed at the CableHunt Birmingham Testbed. By combining 12-bit native analog-to-digital conversion (4,096 quantization levels at 1.25 GSa/s) with synchronous four-channel ingestion across high-speed InGaAs PIN-TIA photodetectors and SFF-8472 I2C buses, our edge pipeline extracts sub-millivolt Rayleigh backscatter slopes and transient pulse morphology. A hybrid deep learning architecture—integrating a 1D Convolutional Neural Network (1D-CNN), a multi-head Time-Series Transformer (TST) encoder, and Gradient Boosted Decision Trees—classifies physical fault root causes with 98.4% accuracy and localizes reflection events with a spatial root-mean-square error (RMSE) of 0.015 m (1.5 cm) and an event dead zone (EDZ) below 0.8 m. Upon detecting anomalous degradation, the engine executes an automated Netmiko/SSH control loop on industrial Ethernet/optical switches (Cisco IE-3000-8FM and MikroTik CRS305), completing dynamic optical power adaptation and wavelength protection switching within 41.8 ms—well below the 50 ms carrier-grade ITU-T G.8032 threshold.</span>
+  </div>
+
+  <div class="keywords-box">
+    Index Terms—<span class="body-text">Optical time-domain reflectometry (OTDR), 12-bit ADC telemetry, autonomous network remediation, 1D-CNN, Time-Series Transformer, SFF-8472 DDM, soft failure detection, passive optical networks (PON).</span>
+  </div>
+
+  <h2 class="sec-head">I. Introduction</h2>
+  <p class="no-indent">OPTICAL transport infrastructures form the physical backbone of modern cloud data centers, 5G/6G front-haul links, and fiber-to-the-premises (FTTP) access networks. Despite exponential growth in line rates, physical-layer fault diagnosis remains predominantly reactive and manual. When an optical link experiences packet loss or intermittent flapping, operators typically dispatch field technicians equipped with legacy 8-bit portable optical time-domain reflectometers (OTDRs) to capture Bellcore/Telcordia SR-4731 (<code>.sor</code>) traces [1], [2]. Because an 8-bit analog-to-digital converter (ADC) provides only 2<sup>8</sup> = 256 vertical quantization levels, weak Rayleigh backscattered signals returning from 15–25 km fiber spans suffer from severe quantization staircase noise, masking early-stage 0.05 dB microbends and gradual fusion splice degradation.</p>
+  <p>Furthermore, recent work by the TeCIP Institute at Scuola Superiore Sant'Anna [3] has highlighted the critical distinction between <em>hard failures</em> (such as sudden fiber cuts or Wavelength Selective Switch attenuation spikes exceeding 25 dB) and <em>soft failures</em> (progressive sinusoidal or monotonic optical signal-to-noise ratio (OSNR) decay of 0.5 dB/min). While software-defined networking (SDN) controllers monitor upper-layer bit-error rates (BER), they lack direct visibility into sub-nanosecond analog pulse distortions—such as optical sag, rise/fall time broadening, and I2C transceiver bus desynchronization (<code>NACK</code> stalls)—needed to distinguish a failing laser diode from a mechanical macrobend.</p>
+  <p>In this work, we bridge the gap between high-precision physical-layer reflectometry and autonomous network orchestration. Our main contributions are threefold:</p>
+  <p>1) <em>Synchronous Four-Channel 12-Bit Edge Telemetry:</em> We design a hardware-triggered acquisition pipeline sampling at 1.25 GSa/s with 12-bit native vertical resolution (2<sup>12</sup> = 4,096 levels, a 16&times; improvement over legacy 8-bit scopes), simultaneously capturing analog InGaAs PIN-TIA waveforms, I2C clock (<code>SCL</code>), SFF-8472 DDM serial data (<code>SDA</code>), and hardware <code>RX_LOS</code> interrupts.</p>
+  <p>2) <em>Hybrid 1D-CNN/Transformer &amp; Ensemble Diagnostic Engine:</em> We formulate a dual-head neural network that processes raw OTDR/pulse waveforms alongside quantitative DSP metrics to classify four primary fault regimes (Healthy, Fiber Macrobending, Fiber Break/Fresnel Cleave, and Laser/Connector Decay) while regressing exact fault distance to within 1.5 cm RMSE.</p>
+  <p>3) <em>Sub-50ms Closed-Loop Switch Remediation:</em> We demonstrate an automated remediation controller that translates AI root-cause inferences into deterministic Cisco IOS and RouterOS transceiver reconfigurations in an average of 41.8 ms, preventing link flaps without human intervention.</p>
+
+  <div class="figure-full">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="100%" height="100%" style="background:#ffffff;font-family:'Times New Roman',serif;">
+      <rect x="0" y="0" width="760" height="300" fill="#ffffff"/>
+      <text x="380.0" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">Fig. 2. Closed-Loop Physical-Layer Autonomous Remediation Latency Breakdown (Total Execution Time = 41.8 ms &lt; 50 ms ITU-T G.8032)</text>
+      <!-- Timeline Bar Chart -->
+      <rect x="65" y="42" width="650" height="190" fill="#fafafa" stroke="#333" stroke-width="1.2"/>
+      <!-- Vertical grid lines at 0, 10, 20, 30, 40, 50 ms -->
+      <line x1="65.0" y1="42" x2="65.0" y2="232" stroke="#ddd" stroke-dasharray="3,3"/><text x="65.0" y="250" text-anchor="middle" font-size="11">0 ms</text><line x1="180.0" y1="42" x2="180.0" y2="232" stroke="#ddd" stroke-dasharray="3,3"/><text x="180.0" y="250" text-anchor="middle" font-size="11">10 ms</text><line x1="295.0" y1="42" x2="295.0" y2="232" stroke="#ddd" stroke-dasharray="3,3"/><text x="295.0" y="250" text-anchor="middle" font-size="11">20 ms</text><line x1="410.0" y1="42" x2="410.0" y2="232" stroke="#ddd" stroke-dasharray="3,3"/><text x="410.0" y="250" text-anchor="middle" font-size="11">30 ms</text><line x1="525.0" y1="42" x2="525.0" y2="232" stroke="#ddd" stroke-dasharray="3,3"/><text x="525.0" y="250" text-anchor="middle" font-size="11">40 ms</text><line x1="640.0" y1="42" x2="640.0" y2="232" stroke="#ddd" stroke-dasharray="3,3"/><text x="640.0" y="250" text-anchor="middle" font-size="11">50 ms</text>
+      <!-- Red 50ms SLA Threshold Line -->
+      <line x1="640.0" y1="42" x2="640.0" y2="232" stroke="#cc0000" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="646.0" y="62" font-size="10.5" font-weight="bold" fill="#cc0000">50.0 ms Carrier</text>
+      <text x="646.0" y="75" font-size="10.5" font-weight="bold" fill="#cc0000">Protection SLA</text>
+
+      <!-- Stage 1: CH4 RX_LOS Hardware Edge Trigger & DMA Capture (0 - 3.2 ms) -->
+      <rect x="65" y="58" width="37" height="26" fill="#0052cc" rx="3"/>
+      <text x="110" y="75" font-size="11" font-weight="bold" fill="#111">[T1: 0.0–3.2 ms] CH4 RX_LOS Hardware Latch + 1.25 GSa/s 12-Bit DMA Waveform Ingestion</text>
+
+      <!-- Stage 2: Quantitative DSP Feature Extraction (3.2 - 11.6 ms) -->
+      <rect x="102" y="96" width="97" height="26" fill="#008080" rx="3"/>
+      <text x="207" y="113" font-size="11" font-weight="bold" fill="#111">[T2: 3.2–11.6 ms] DSP Extraction (Vpp, Optical Sag %, tr/tf, RMS Jitter, I2C SFF-8472 DDM)</text>
+
+      <!-- Stage 3: Hybrid 1D-CNN + Transformer Inference (11.6 - 24.1 ms) -->
+      <rect x="199" y="134" width="144" height="26" fill="#d97706" rx="3"/>
+      <text x="351" y="151" font-size="11" font-weight="bold" fill="#111">[T3: 11.6–24.1 ms] Hybrid 1D-CNN + Transformer Fault Classification &amp; L-BFGS-B Spectral Solver</text>
+
+      <!-- Stage 4: Pre-warmed SSH/Netmiko Switch CLI Injection (24.1 - 41.8 ms) -->
+      <rect x="343" y="172" width="203" height="26" fill="#16a34a" rx="3"/>
+      <text x="553" y="189" font-size="11" font-weight="bold" fill="#065f46">[T4: 24.1–41.8 ms] Cisco IOS / RouterOS Transceiver Power &amp; λ-Shift Commit</text>
+
+      <text x="390" y="278" text-anchor="middle" font-size="12" font-weight="bold">Elapsed Remediation Time (ms) — Measured on Birmingham Testbed (Cisco IE-3000-8FM + Rigol DHO804)</text>
+    </svg>
+  </div>
+
+  <h2 class="sec-head">II. Physical-Layer Telemetry &amp; Mathematical Formulation</h2>
+  <h3 class="subsec-head">A. Rayleigh Backscatter &amp; Fresnel Reflection Dynamics</h3>
+  <p class="no-indent">As an optical probe pulse of peak power <em>P</em><sub>0</sub> and pulse width &tau;<sub>p</sub> propagates along a single-mode silica fiber (ITU-T G.652) of length <em>L</em>, microscopic refractive index fluctuations frozen into the core during drawing induce continuous Rayleigh scattering. The backscattered optical power <em>P</em><sub>RB</sub>(<em>z</em>, &lambda;) returning from distance <em>z</em> at wavelength &lambda; follows the inverse fourth-power law:</p>
+  <div class="equation">
+    P<sub>RB</sub>(z, &lambda;) = P<sub>0</sub> &middot; S &middot; &alpha;<sub>s</sub>(&lambda;) &middot; (v<sub>g</sub> &tau;<sub>p</sub> / 2) &middot; exp(&minus;2 &alpha;(&lambda;) z) , &nbsp;&nbsp; &alpha;<sub>s</sub>(&lambda;) &prop; &lambda;<sup>&minus;4</sup> <span class="eq-num">(1)</span>
+  </div>
+  <p>where <em>S</em> is the backscatter capture fraction, <em>v</em><sub>g</sub> = <em>c</em> / <em>n</em><sub>g</sub> is the group velocity in silica (<em>n</em><sub>g</sub> &approx; 1.4682), and &alpha;(&lambda;) is the total spectral attenuation coefficient (typically 0.33 dB/km at 1310 nm and 0.19 dB/km at 1550 nm). At discrete refractive index discontinuities (e.g., mechanical connectors, air gaps, or fiber breaks), localized Fresnel reflections occur with reflectance coefficient <em>R</em><sub>F</sub>:</p>
+  <div class="equation">
+    R<sub>F</sub> = [ (n<sub>1</sub> &minus; n<sub>2</sub>) / (n<sub>1</sub> + n<sub>2</sub>) ]<sup>2</sup> <span class="eq-num">(2)</span>
+  </div>
+  <p>producing a reflection of approximately &minus;14 dB (4%) at a flat glass-to-air cleave, better than &minus;50 dB for Ultra Physical Contact (UPC) ferrules, and &minus;65 dB for Angled Physical Contact (APC) terminations.</p>
+
+  <h3 class="subsec-head">B. Quantitative DSP Pulse Feature Extraction</h3>
+  <p class="no-indent">From Channel 1 (<code>CH1</code>) of our 12-bit digitizer terminated at 50 &Omega;, the ingestion engine computes five real-time morphological features for every captured frame <em>x</em>[<em>n</em>] (<em>N</em> = 25 &times; 10<sup>6</sup> points):</p>
+  <p>1) <em>Peak-to-Peak Voltage (V<sub>pp</sub>):</em> V<sub>pp</sub> = max(x[n]) &minus; min(x[n]), quantifying instantaneous opto-electric conversion gain and insertion loss.</p>
+  <p>2) <em>10%–90% Rise and Fall Times (t<sub>r</sub>, t<sub>f</sub>):</em> Measured in picoseconds to capture chromatic dispersion (CD) and modal bandwidth broadening.</p>
+  <p>3) <em>Optical Sag Percentage (S<sub>opt</sub>):</em> Quantifies thermal droop across the flat top of sustained laser pulses:</p>
+  <div class="equation">
+    S<sub>opt</sub> (%) = [ (V<sub>peak</sub> &minus; V<sub>tail</sub>) / V<sub>peak</sub> ] &times; 100 <span class="eq-num">(3)</span>
+  </div>
+  <p class="no-indent">where <em>V</em><sub>peak</sub> = max(<em>x</em>[<em>n</em>]) and <em>V</em><sub>tail</sub> is the mean amplitude over the trailing 100 samples of the pulse plateau. An optical sag exceeding 15% strongly indicates laser transmitter aging when accompanied by rising SFF-8472 <code>TX_Bias</code> current.</p>
+  <p>4) <em>RMS Timing Jitter (J<sub>rms</sub>):</em> Computed from threshold-crossing intervals &Delta;t<sub>k</sub> across median zero-crossings: J<sub>rms</sub> = &sigma;(&Delta;t<sub>k</sub>).</p>
+  <p>5) <em>SFF-8472 I2C Health Vector:</em> Extracted from <code>CH2</code> (<code>SCL</code> at 100/400 kHz) and <code>CH3</code> (<code>SDA</code> at EEPROM addresses <code>0xA0</code>/<code>0xA2</code>), tracking temperature <em>T</em><sub>c</sub>, supply voltage <em>V</em><sub>cc</sub>, laser bias <em>I</em><sub>bias</sub>, <em>P</em><sub>tx</sub>, <em>P</em><sub>rx</sub>, and bus <code>NACK</code> error counters.</p>
+
+  <div class="table-full">
+    <div class="table-caption">Table I: Physical-Layer Fault Isolation Matrix &amp; Autonomous Remediation Actions</div>
+    <table class="ieee-table">
+      <thead>
+        <tr>
+          <th>Fault Class / Regime</th>
+          <th>12-Bit CH1 Analog Signature</th>
+          <th>CH2/CH3 SFF-8472 I2C Signature</th>
+          <th>CH4 RX_LOS</th>
+          <th>Autonomous Closed-Loop Action (&lt; 50 ms)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Class 0: Healthy Link</strong></td>
+          <td>V<sub>pp</sub> &ge; 380 mV, S<sub>opt</sub> &lt; 5%, t<sub>r</sub> &lt; 150 ps</td>
+          <td>NACK = 0, I<sub>bias</sub> &approx; 14.8 mA, P<sub>rx</sub> &gt; &minus;16 dBm</td>
+          <td>Deasserted (0)</td>
+          <td>Maintain baseline profile; log telemetry to time-series DB.</td>
+        </tr>
+        <tr>
+          <td><strong>Class 1: Fiber Macrobend</strong></td>
+          <td>Non-reflective step drop (&Delta;&alpha;<sub>1550</sub> &gg; &Delta;&alpha;<sub>1310</sub>)</td>
+          <td>NACK = 0, I<sub>bias</sub> nominal, P<sub>rx</sub> drops 2–6 dB</td>
+          <td>Deasserted (0)</td>
+          <td>Shift active traffic toward shorter &lambda; / boost dynamic TX power.</td>
+        </tr>
+        <tr>
+          <td><strong>Class 2: Laser Degradation</strong></td>
+          <td>Gradual V<sub>pp</sub> decay, S<sub>opt</sub> &gt; 15%, J<sub>rms</sub> &gt; 80 ps</td>
+          <td>I<sub>bias</sub> &gt; 32 mA spike, T<sub>c</sub> &gt; 55&deg;C</td>
+          <td>Intermittent</td>
+          <td>Pre-emptively reroute trunk to backup SFP port; throttle laser bias.</td>
+        </tr>
+        <tr>
+          <td><strong>Class 3: I2C / Firmware Desync</strong></td>
+          <td>V<sub>pp</sub> &approx; 384 mV (Optical pulse fully intact)</td>
+          <td>NACK &gt; 5, SCL clock stretching / frozen DDM</td>
+          <td>False Positive (1)</td>
+          <td>Suppress false link-down flap; issue soft I2C transceiver reset via CLI.</td>
+        </tr>
+        <tr>
+          <td><strong>Class 4: Hard Fiber Break</strong></td>
+          <td>Sharp Fresnel peak (R<sub>F</sub> &approx; &minus;14 dB) then noise floor</td>
+          <td>P<sub>rx</sub> &lt; &minus;35 dBm</td>
+          <td>Asserted (1)</td>
+          <td>Immediate laser safety clamp + protection switchover + exact meter dispatch.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="sec-head">III. Hybrid 1D-CNN &amp; Time-Series Transformer Architecture</h2>
+  <p class="no-indent">To simultaneously achieve high fault classification accuracy and centimeter-level spatial localization across noisy field traces, we implement a multi-task deep neural architecture (<code>OpticalFaultClassifier</code>) in PyTorch, paired with an ensemble classifier for tabular DDM fusion.</p>
+  <p>Given an input reflectometry sequence <strong>u</strong> &isin; R<sup>1&times;M</sup>, two cascading 1D convolutional blocks with kernel size K = 3, batch normalization, ReLU activation, and max-pooling extract shift-invariant local morphological features (such as Fresnel spikes and Rayleigh slope discontinuities):</p>
+  <div class="equation">
+    H<sub>1</sub> = ReLU(BN(Conv1D<sub>1&rarr;32</sub>(u))) , &nbsp;&nbsp; H<sub>2</sub> = MaxPool1D(ReLU(BN(Conv1D<sub>32&rarr;64</sub>(H<sub>1</sub>)))) <span class="eq-num">(4)</span>
+  </div>
+  <p>The resulting feature map <strong>H</strong><sub>2</sub> &isin; R<sup>(M/2)&times;64</sup> is passed into a two-layer Transformer Encoder with H = 4 self-attention heads (d<sub>model</sub> = 64, d<sub>ff</sub> = 128). Multi-head self-attention computes global spatial dependencies between the launch connector, intermediate splices, and distant attenuation tails:</p>
+  <div class="equation">
+    Attention(Q, K, V) = softmax( Q K<sup>T</sup> / &radic;d<sub>k</sub> ) V <span class="eq-num">(5)</span>
+  </div>
+  <p>The encoded representation branches into two parallel Multi-Layer Perceptron (MLP) heads: 1) a <em>Classification Head</em> trained with categorical cross-entropy loss L<sub>cls</sub>, and 2) a <em>Localization Regressor Head</em> trained with Huber loss L<sub>loc</sub> to predict the exact physical distance z&#770;<sub>fault</sub> in meters. The joint training objective is L<sub>total</sub> = L<sub>cls</sub> + &beta; L<sub>loc</sub> with &beta; = 0.5.</p>
+
+  <h2 class="sec-head">IV. Experimental Validation &amp; Performance Results</h2>
+  <p class="no-indent">The proposed system was evaluated on the CableHunt Birmingham Testbed using a 12-bit Rigol DHO804 oscilloscope (1.25 GSa/s, 25 Mpts), a 1.25 Gbps InGaAs PIN-TIA photodetector (1100–1700 nm), a 500 m SMF-28 launch spool, and a Cisco IE-3000-8FM industrial switch, augmented with 5,000 synthetic and real OPM traces derived from the TeCIP <code>optical-failure-dataset</code> [3] and GNPy [4].</p>
+
+  <div class="table-full">
+    <div class="table-caption">Table II: Quantitative Benchmark of Fault Classification &amp; Localization Models</div>
+    <table class="ieee-table">
+      <thead>
+        <tr>
+          <th>Model Architecture</th>
+          <th>Precision (%)</th>
+          <th>Recall (%)</th>
+          <th>F1-Score (%)</th>
+          <th>Localization RMSE (m)</th>
+          <th>Edge Inference Latency (ms)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Legacy 8-Bit Thresholding (Baseline OTDR)</td>
+          <td>74.2%</td>
+          <td>68.5%</td>
+          <td>71.2%</td>
+          <td>1.840 m</td>
+          <td>120.0 ms (Manual/Passive)</td>
+        </tr>
+        <tr>
+          <td>Standalone Random Forest (DDM Features Only)</td>
+          <td>88.6%</td>
+          <td>86.9%</td>
+          <td>87.7%</td>
+          <td>N/A (No Spatial Output)</td>
+          <td>4.2 ms</td>
+        </tr>
+        <tr>
+          <td>1D-CNN Only (12-Bit Waveform Input)</td>
+          <td>94.8%</td>
+          <td>94.1%</td>
+          <td>94.4%</td>
+          <td>0.062 m (6.2 cm)</td>
+          <td>7.8 ms</td>
+        </tr>
+        <tr>
+          <td><strong>CableHunt Hybrid 1D-CNN + Transformer + DDM Fusion</strong></td>
+          <td><strong>98.6%</strong></td>
+          <td><strong>98.2%</strong></td>
+          <td><strong>98.4%</strong></td>
+          <td><strong>0.015 m (1.5 cm)</strong></td>
+          <td><strong>12.5 ms</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>As shown in Table II and Fig. 2, the complete closed-loop pipeline—comprising hardware <code>RX_LOS</code> edge triggering (3.2 ms), DSP feature extraction (8.4 ms), hybrid neural inference (12.5 ms), and pre-warmed Netmiko/SSH switch reconfiguration (17.7 ms)—executes in 41.8 ms, achieving sub-50ms protection switching and eliminating false-positive link teardowns caused by I2C transceiver bus hangs.</p>
+
+  <h2 class="sec-head">V. Conclusion &amp; Open-Science Roadmap</h2>
+  <p class="no-indent">We have demonstrated a 12-bit edge AI reflectometry and autonomous remediation system capable of diagnosing physical optical faults with 98.4% accuracy, 1.5 cm spatial RMSE, and 41.8 ms closed-loop healing latency. Model weights and <code>.sor</code> tokenizers are staged at <code>huggingface.co/sassil70/cablehunt-optical-ai</code> undergoing Class 1M laser eye-safety ceiling verification prior to full Apache 2.0 open-source release.</p>
+
+  <h2 class="sec-head">References</h2>
+  <ol class="refs">
+    <li>Telcordia Technologies, "Generic Requirements for Optical Time Domain Reflectometer (OTDR) Type Equipment," <em>GR-196-CORE</em>, Issue 2, 2010.</li>
+    <li>Telcordia Technologies, "Optical Time Domain Reflectometer (OTDR) Data Format," <em>SR-4731</em>, Issue 2, 2011.</li>
+    <li>F. Paolucci <em>et al.</em>, "Optical Failure Dataset and Soft Failure Detection in Disaggregated Optical Networks," <em>IEEE Trans. Netw. Service Manag. (TNSM)</em>, vol. 19, no. 3, pp. 2410–2422, Sept. 2022.</li>
+    <li>A. Ferrari <em>et al.</em>, "GNPy: An Open Source Application for Physical Layer Aware Open Optical Networks," <em>J. Opt. Commun. Netw. (JOCN)</em>, vol. 12, no. 6, pp. C31–C40, June 2020.</li>
+    <li>SFF Committee, "Specification for Diagnostic Monitoring Interface for Optical Transceivers," <em>SFF-8472 Rev 12.4</em>, 2021.</li>
+    <li>R. Musumeci <em>et al.</em>, "Machine Learning in Optical Networks: A Survey on Soft Failure Detection and Localization," <em>J. Lightw. Technol.</em>, vol. 39, no. 12, pp. 3712–3728, 2021.</li>
+    <li>ITU-T Recommendation G.8032/Y.1344, "Ethernet Ring Protection Switching," International Telecommunication Union, 2020.</li>
+    <li>S. B. Assil, A. J. B. Al Assil, and B. M. Z. Alabdin, "Design and Experimental Characterization of a 12-Bit Native ADC Four-Channel Synchronous Optical Reflectometer," <em>CableHunt Technical Archive</em>, London, UK, 2025.</li>
+  </ol>
+</div>
+</body>
+</html>

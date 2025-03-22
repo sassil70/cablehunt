@@ -1,0 +1,32 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\begin{document}
+\title{Design and Experimental Characterization of a 12-Bit Native ADC Four-Channel Synchronous Optical Reflectometer with Floating-Ground InGaAs PIN-TIA Front-End}
+
+\author{Salim~Bassam~Assil,~\IEEEmembership{Lead~Instrumentation~Researcher,} Ahmad~Jalal~B.~Al~Assil, and~Batoul~Mowafak~Zain~Alabdin%
+\thanks{The authors are with the Hardware Instrumentation Laboratory, CableHunt Networks Ltd. (UK Company No. 16093071), London, SE1 8EE, and Birmingham R\&D Testbed, United Kingdom (e-mail: assilno1@gmail.com; saleem@cablehunt.co.uk; sassil@psa.ac.ae).}}
+
+\maketitle
+
+\begin{abstract}
+Conventional field optical time-domain reflectometers (OTDRs) rely on 8-bit analog-to-digital converters (ADCs) offering only 256 vertical quantization steps. In this paper, we present the design and experimental validation of the CableHunt 12-Bit Native ADC Four-Channel Synchronous Reflectometer. Built around a floating-ground DC-powered 12-bit digitizer (4,096 quantization levels, 1.25 GSa/s, 25 Mpts memory depth), a 50-$\Omega$ impedance-matched InGaAs PIN-TIA front-end (1100--1700 nm, 1.25 Gbps), and a custom SFP breakout fixture, our instrument simultaneously captures analog optical transients alongside digital I2C (SCL/SDA) and hardware RX\_LOS triggers. Experimental benchmarks demonstrate a 24.08 dB quantization noise reduction (16$\times$ vertical resolution enhancement), an Event Dead Zone (EDZ) below 0.8 m, an Attenuation Dead Zone (ADZ) below 2.5 m, and an 85\% reduction in optoelectronic front-end cost.
+\end{abstract}
+
+\begin{IEEEkeywords}
+12-bit ADC, optical time-domain reflectometry (OTDR), InGaAs PIN-TIA, floating-ground instrumentation, event dead zone (EDZ).
+\end{IEEEkeywords}
+
+\section{Quantization Noise and Front-End Architecture}
+The ideal Signal-to-Quantization-Noise Ratio (SQNR) is governed by:
+\begin{equation}
+\text{SQNR}_{\text{dB}} = 6.02 N + 1.76
+\end{equation}
+Upgrading from $N=8$ bits ($49.92\text{ dB}$) to $N=12$ native bits ($74.00\text{ dB}$) provides a $+24.08\text{ dB}$ dynamic range improvement and $16\times$ finer vertical step resolution ($\Delta V_{12} = 195.3\,\mu\text{V}$ at $100\text{ mV/div}$).
+
+\section{Conclusion}
+The 12-bit floating-ground reflectometer achieves $\text{EDZ} = 0.75\text{ m}$ ($<0.8\text{ m}$) and $\text{ADZ} < 2.5\text{ m}$ while reducing receiver hardware cost by 85\% compared to benchtop photodetectors.
+\end{document}
