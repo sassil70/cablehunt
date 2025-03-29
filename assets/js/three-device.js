@@ -381,13 +381,40 @@ document.addEventListener('DOMContentLoaded', () => {
     visionBarrel.position.set(0, 3.28, 0);
     topBulkheadLayer.add(visionBarrel);
 
+    const visionLensMat = new THREE.MeshBasicMaterial({ color: 0x06b6d4, side: THREE.DoubleSide });
     const visionLens = new THREE.Mesh(
         new THREE.CircleGeometry(0.26, 32),
-        new THREE.MeshBasicMaterial({ color: 0x06b6d4, side: THREE.DoubleSide })
+        visionLensMat
     );
     visionLens.rotation.x = -Math.PI / 2;
     visionLens.position.set(0, 3.56, 0);
     topBulkheadLayer.add(visionLens);
+
+    // 400x Optical Laser Scanning Cone & Target Reticle (Active in "scan" mode)
+    const scanConeGeo = new THREE.ConeGeometry(1.75, 3.1, 32, 1, true);
+    const scanConeMat = new THREE.MeshBasicMaterial({
+        color: 0x06b6d4,
+        transparent: true,
+        opacity: 0.0,
+        side: THREE.DoubleSide,
+        wireframe: true
+    });
+    const scanConeMesh = new THREE.Mesh(scanConeGeo, scanConeMat);
+    scanConeMesh.position.set(0, 5.10, 0);
+    scanConeMesh.rotation.x = Math.PI;
+    topBulkheadLayer.add(scanConeMesh);
+
+    const scanReticleGeo = new THREE.RingGeometry(1.15, 1.32, 32);
+    const scanReticleMat = new THREE.MeshBasicMaterial({
+        color: 0xf7941d,
+        transparent: true,
+        opacity: 0.0,
+        side: THREE.DoubleSide
+    });
+    const scanReticleMesh = new THREE.Mesh(scanReticleGeo, scanReticleMat);
+    scanReticleMesh.rotation.x = -Math.PI / 2;
+    scanReticleMesh.position.set(0, 6.62, 0);
+    topBulkheadLayer.add(scanReticleMesh);
 
     // RFoF / 40G SFP28 Gold Transceiver Cage
     const rfofCage = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.48, 0.48), goldMat);
@@ -543,6 +570,17 @@ document.addEventListener('DOMContentLoaded', () => {
         chassisLayer.position.z += (targetChassisZ - chassisLayer.position.z) * 0.08;
         topBulkheadLayer.position.y += (targetTopY - topBulkheadLayer.position.y) * 0.08;
         bottomIsoLayer.position.y += (targetBottomY - bottomIsoLayer.position.y) * 0.08;
+
+        // Animate 400x Vision Probe Laser Cone when scan mode is active
+        if (activeViewMode === 'scan') {
+            scanConeMat.opacity = 0.34 + Math.sin(frame * 0.12) * 0.14;
+            scanConeMesh.rotation.y += 0.025;
+            scanReticleMat.opacity = 0.65 + Math.cos(frame * 0.12) * 0.25;
+            scanReticleMesh.scale.setScalar(1.0 + Math.sin(frame * 0.08) * 0.08);
+        } else {
+            scanConeMat.opacity *= 0.85;
+            scanReticleMat.opacity *= 0.85;
+        }
 
         if (isTransitioning) {
             camera.position.x += (targetCam.x - camera.position.x) * 0.08;

@@ -5,7 +5,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/sassil70/cablehunt?style=flat-square&logo=github&color=F7941D)](https://github.com/sassil70/cablehunt/stargazers)
 [![Hugging Face Smart AI Model](https://img.shields.io/badge/Hugging%20Face-Smart%20Optical%20AI%20(2029%20Release)-FFD21E?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/sassil/cablehunt-optical-ai)
-[![Software Open Source](https://img.shields.io/badge/Software%20Open%20Source-Sept%202027-blue?style=flat-square)](LICENSE.md)
+[![Software Open Source](https://img.shields.io/badge/Software%20Open%20Source-Sept%202026-blue?style=flat-square)](LICENSE.md)
 [![AI Weights Open Release](https://img.shields.io/badge/AI%20Model%20Weights-2029%20Public%20Release-10B981?style=flat-square)](huggingface-model-card/README.md)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-brightgreen?style=flat-square&logo=github)](https://sassil70.github.io/cablehunt/)
 [![Official Portal](https://img.shields.io/badge/Official%20Portal-cablehunt.co.uk-0052CC?style=flat-square)](https://cablehunt.co.uk)
@@ -75,7 +75,7 @@ Unlike generic language models, **`cablehunt-optical-ai`** is a purpose-built, p
 2. **Differential Wavelength Physics Layer ($\Delta\alpha_{1625/1550}$):** Compares $1550\text{ nm}$ C-Band against $1625\text{ nm}/1650\text{ nm}$ L/U-Band evanescent mode-field leakage to tell the difference between a harmless thermal splice drift and a physical digger crushing a roadside duct.
 3. **Time-to-Failure Prognostics Head:** Forecasts exactly how many days remain before a $-0.08\text{ dB}$ micro-stress crosses the FEC bit-error cliff, and synthesises safe Netmiko CLI remediation commands.
 
-#### Why is the Smart AI Model confirmed for open release in **2029** (while the software opens in **Sept 2027**)?
+#### Why is the Smart AI Model confirmed for open release in **2029** (while the software stack opens in **Sept 2026**)?
 An honest engineering answer: **Critical National Infrastructure (CNI) security and physical laser safety.**
 
 This model directly controls optical launch power, DWDM channel allocation, and core router failover scripts across live telecom backbones. If an insufficiently hardened model is tricked by adversarial optical pulse injection or hallucinates a power boost, it can blind sensitive InGaAs APD receivers, breach Class 1M laser safety limits, or flap regional routing tables.
@@ -83,9 +83,9 @@ This model directly controls optical launch power, DWDM channel allocation, and 
 Therefore, we operate a strict **Two-Stage Open Release Schedule**:
 
 ```
-   2025                     SEPTEMBER 2027                         2029 RELEASE
-        │                                  │                                    │
-        ▼                                  ▼                                    ▼
+  MAR 2026                   SEPTEMBER 2026                         2029 RELEASE
+         │                                  │                                    │
+         ▼                                  ▼                                    ▼
 ┌───────────────────────┐      ┌───────────────────────────┐      ┌──────────────────────────────┐
 │ PRIVATE LAB & REVIEW  │ ===> │  STAGE 1: OPEN SOFTWARE   │ ===> │ STAGE 2: SMART AI MODEL (HF) │
 │ Inspect architecture, │      │ Python 12-bit DSP suite,  │      │ Full 1D-CNN + PINN weights   │
@@ -94,7 +94,7 @@ Therefore, we operate a strict **Two-Stage Open Release Schedule**:
 └───────────────────────┘      └───────────────────────────┘      └──────────────────────────────┘
 ```
 
-- **September 2027 (Software Stack Open-Source):** The core Python 12-bit DSP acquisition code, `.SOR` Bellcore parser, and Netmiko automation drivers in this GitHub repository transition to a standard open-source licence.
+- **September 2026 (Software Stack Open-Source):** The core Python 12-bit DSP acquisition code, `.SOR` Bellcore parser, and Netmiko automation drivers in this GitHub repository transition to a standard open-source licence.
 - **2029 (Smart Optical AI Model Weights on Hugging Face):** Following multi-winter UK carrier endurance trials, adversarial red-teaming, and **UK Telecoms Security Act (TSA)** compliance sign-off, the complete `cablehunt-optical-ai` model weights, tokenisers, and anonymised 12-bit `.SOR` benchmark datasets will be published openly on Hugging Face.
 
 ---
@@ -106,8 +106,8 @@ We have organised this repository so engineers, auditors, and researchers can in
 ```text
 cablehunt/
 ├── index.html                               # Master interactive platform (3D CAD, 12-bit Scope, Eye Diagram, CLI)
-├── README.md                                # Project overview & Two-Stage (2027/2029) Open Roadmap
-├── LICENSE.md                               # Deferred Open-Source (Sept 2027) & AI Model (2029) Governance
+├── README.md                                # Project overview & Two-Stage (Sept 2026 / 2029) Open Roadmap
+├── LICENSE.md                               # Open-Source Software (Sept 2026) & AI Model (2029) Governance
 ├── Dockerfile                               # Production Nginx container build (Cloud Run / Docker ready)
 ├── assets/
 │   ├── css/style.css                        # Obsidian Deep-Tech styling & responsive layout grid

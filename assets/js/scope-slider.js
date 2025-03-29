@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDragging = false;
     let currentFaultMode = 'macrobend'; // 'macrobend' | 'splice' | 'ferrule' | 'clean'
     let phaseTick = 0;
+    let hoverPos = null;
 
     function pseudoNoise(index, tick) {
         const x = Math.sin(index * 12.9898 + tick * 0.7) * 43758.5453;
@@ -213,6 +214,88 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.moveTo(splitX, 0);
         ctx.lineTo(splitX, height);
         ctx.stroke();
+
+        // Interactive 16x Optical Magnifying Lens (when user hovers over the scope)
+        if (hoverPos && !isDragging) {
+            const lensR = 68;
+            const lx = Math.max(lensR + 10, Math.min(width - lensR - 10, hoverPos.x));
+            const ly = Math.max(lensR + 10, Math.min(height - lensR - 10, hoverPos.y));
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(lx, ly, lensR, 0, Math.PI * 2);
+            ctx.clip();
+
+            ctx.fillStyle = '#03060c';
+            ctx.fillRect(lx - lensR, ly - lensR, lensR * 2, lensR * 2);
+
+            // Fine sub-millivolt 12-bit quantization grid inside lens
+            ctx.strokeStyle = 'rgba(6, 182, 212, 0.16)';
+            ctx.lineWidth = 0.8;
+            for (let gx = lx - lensR; gx <= lx + lensR; gx += 12) {
+                ctx.beginPath(); ctx.moveTo(gx, ly - lensR); ctx.lineTo(gx, ly + lensR); ctx.stroke();
+            }
+            for (let gy = ly - lensR; gy <= ly + lensR; gy += 12) {
+                ctx.beginPath(); ctx.moveTo(lx - lensR, gy); ctx.lineTo(lx + lensR, gy); ctx.stroke();
+            }
+
+            // Zoomed 2.8x comparison inside lens (shows 8-bit red stair-steps vs 12-bit cyan precision)
+            const zoom = 2.8;
+            // 8-bit red trace (dashed reference inside lens)
+            ctx.strokeStyle = 'rgba(239, 68, 68, 0.72)';
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            for (let i = 0; i <= points; i++) {
+                const pt = baseSignal[i];
+                const rawNoise = pseudoNoise(i, phaseTick) * 30;
+                const qY = Math.round((pt.y + rawNoise) / stepSize) * stepSize;
+                const zx = lx + (pt.x - lx) * zoom;
+                const zy = ly + (qY - ly) * zoom;
+                if (i === 0) ctx.moveTo(zx, zy);
+                else ctx.lineTo(zx, zy);
+            }
+            ctx.stroke();
+
+            // 12-bit cyan trace (ultra-clean zoomed inside lens)
+            ctx.strokeStyle = '#06b6d4';
+            ctx.shadowColor = '#06b6d4';
+            ctx.shadowBlur = 10;
+            ctx.lineWidth = 3.0;
+            ctx.beginPath();
+            for (let i = 0; i <= points; i++) {
+                const pt = baseSignal[i];
+                const fineY = pt.y + pseudoNoise(i, phaseTick) * 1.3;
+                const zx = lx + (pt.x - lx) * zoom;
+                const zy = ly + (fineY - ly) * zoom;
+                if (i === 0) ctx.moveTo(zx, zy);
+                else ctx.lineTo(zx, zy);
+            }
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            // Crosshair & 16x HUD label inside lens
+            ctx.strokeStyle = 'rgba(247, 148, 29, 0.45)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(lx - 14, ly); ctx.lineTo(lx + 14, ly);
+            ctx.moveTo(lx, ly - 14); ctx.lineTo(lx, ly + 14);
+            ctx.stroke();
+
+            ctx.fillStyle = '#f7941d';
+            ctx.font = 'bold 9.5px "JetBrains Mono", monospace';
+            ctx.fillText('16x 12-BIT LENS', lx - 44, ly - lensR + 18);
+            const kmAtCursor = Math.max(0, Math.min(80, ((lx / width - 0.05) / 0.86) * 80)).toFixed(1);
+            ctx.fillStyle = '#06b6d4';
+            ctx.fillText(`${kmAtCursor} km | 4096 LVL`, lx - 48, ly + lensR - 11);
+            ctx.restore();
+
+            // Outer Lens Ring
+            ctx.beginPath();
+            ctx.arc(lx, ly, lensR, 0, Math.PI * 2);
+            ctx.strokeStyle = '#f7941d';
+            ctx.lineWidth = 2.5;
+            ctx.stroke();
+        }
     }
 
     function updateSlider(clientX) {
@@ -227,6 +310,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.closest('.fault-inject-btn')) return;
         isDragging = true;
         updateSlider(e.clientX);
+    });
+    container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        hoverPos = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+        if (!isDragging) drawWaveforms();
+    });
+    container.addEventListener('mouseleave', () => {
+        hoverPos = null;
+        drawWaveforms();
     });
     window.addEventListener('mousemove', (e) => {
         if (isDragging) updateSlider(e.clientX);

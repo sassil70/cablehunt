@@ -2,10 +2,10 @@ cff-version: 1.2.0
 message: "If you use CableHunt hardware designs, 12-bit reflectometry datasets, or spectral optimization algorithms in your research, please cite our papers below."
 title: "CableHunt Networks: 12-Bit Native ADC Optical Reflectometry, Sub-50ms Autonomous Remediation, and Multi-Band 1G-to-40G Spectral Optimization"
 version: 1.0.0
-date-released: 2025-03-15
+date-released: 2026-09-15
 url: "https://sassil70.github.io/cablehunt/papers/"
 repository-code: "https://github.com/sassil70/cablehunt"
-license: "LicenseRef-CableHunt-Academic-2025"
+license: "LicenseRef-CableHunt-Academic-2026"
 authors:
   - family-names: "Assil"
     given-names: "Salim Bassam"

@@ -60,9 +60,69 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 3. Interactive 400x Optical Magnifying Lens (Loupe) on Hardware & Inspection Frames
+    document.querySelectorAll('.isolated-hardware-frame, .gitex-image-container').forEach(frame => {
+        const img = frame.querySelector('img');
+        if (!img) return;
+        frame.style.position = 'relative';
+        frame.style.overflow = 'hidden';
+        frame.style.cursor = 'crosshair';
+
+        const loupe = document.createElement('div');
+        loupe.className = 'ch-optical-loupe';
+        loupe.style.cssText = `
+            position: absolute;
+            width: 148px;
+            height: 148px;
+            border-radius: 50%;
+            border: 2px solid #F7941D;
+            box-shadow: 0 0 24px rgba(247, 148, 29, 0.55), inset 0 0 18px rgba(6, 182, 212, 0.35);
+            pointer-events: none;
+            display: none;
+            z-index: 30;
+            background-repeat: no-repeat;
+            background-color: #070A10;
+        `;
+        const hud = document.createElement('span');
+        hud.style.cssText = `
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-mono);
+            font-size: 9px;
+            font-weight: 700;
+            color: #06B6D4;
+            background: rgba(5, 8, 14, 0.85);
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+            border: 1px solid rgba(6, 182, 212, 0.4);
+        `;
+        hud.textContent = '400x OPTICAL LENS';
+        loupe.appendChild(hud);
+        frame.appendChild(loupe);
+
+        const moveLoupe = (clientX, clientY) => {
+            const rect = frame.getBoundingClientRect();
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+            const zoom = 2.4;
+            loupe.style.display = 'block';
+            loupe.style.left = `${x - 74}px`;
+            loupe.style.top = `${y - 74}px`;
+            loupe.style.backgroundImage = `url('${img.src}')`;
+            loupe.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
+            loupe.style.backgroundPosition = `-${x * zoom - 74}px -${y * zoom - 74}px`;
+        };
+
+        frame.addEventListener('mousemove', (e) => moveLoupe(e.clientX, e.clientY));
+        frame.addEventListener('mouseleave', () => { loupe.style.display = 'none'; });
+    });
 });
 
-// 3. Executive Contact Form Dispatch (Reference Ticket + Direct Mailto to @cablehunt.co.uk)
+// 4. Executive Contact Form Dispatch (Reference Ticket + Direct Mailto to @cablehunt.co.uk)
 window.submitCableHuntEnquiry = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -72,7 +132,7 @@ window.submitCableHuntEnquiry = (event) => {
     const topic = (form.querySelector('#contact-topic')?.value || 'Technical & Pilot Enquiry').trim();
     const message = (form.querySelector('#contact-message')?.value || '').trim();
 
-    const ticketNum = 'CH-UK-2025-' + Math.floor(1000 + Math.random() * 9000);
+    const ticketNum = 'CH-UK-2026-' + Math.floor(1000 + Math.random() * 9000);
     const feedbackContainer = document.getElementById('contact-ticket-confirmation');
 
     const mailSubject = encodeURIComponent(`[${ticketNum}] ${topic} — ${name} (${org})`);
@@ -106,6 +166,9 @@ window.submitCableHuntEnquiry = (event) => {
                     <a href="${mailtoUrl}" class="btn btn-primary btn-sm" style="text-decoration:none;">
                         Open Direct Email Dispatch (.SOR Trace Ready) &rarr;
                     </a>
+                    <button type="button" class="btn btn-outline btn-sm" onclick="window.askOpticalAI('Hello CableHunt Support, my reference ticket is ${ticketNum} regarding ${topic.replace(/'/g, '')} for ${org.replace(/'/g, '')}. Please advise on next steps.');">
+                        Discuss Ticket with Optical AI &rarr;
+                    </button>
                     <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('contact-ticket-confirmation').style.display='none';">
                         Dismiss
                     </button>
@@ -117,7 +180,7 @@ window.submitCableHuntEnquiry = (event) => {
     form.reset();
 };
 
-// 4. Legal, Privacy & Open-Release Roadmap Modal Controller
+// 5. Legal, Privacy & Open-Release Roadmap Modal Controller
 const legalModalContent = {
     privacy: {
         badge: 'UK GDPR & DATA PROTECTION ACT 2018',
@@ -130,10 +193,10 @@ const legalModalContent = {
     },
     terms: {
         badge: 'INTELLECTUAL PROPERTY & TWO-STAGE OPEN ROADMAP',
-        title: 'Terms of Service, Software (2027) & Smart AI Model (2029)',
+        title: 'Terms of Service, Software (Sept 2026) & Smart AI Model (2029)',
         body: `
-            <p style="margin-bottom:12px;"><strong>1. Private Evaluation Licence:</strong> All source code, 12-bit DSP schematics, and interactive visualisations published on <code>cablehunt.co.uk</code> and <a href="https://github.com/sassil70/cablehunt" target="_blank" style="color:#f7941d;">github.com/sassil70/cablehunt</a> are licensed for private technical evaluation and academic inspection only. Commercial redistribution is prohibited prior to our scheduled open milestones.</p>
-            <p style="margin-bottom:12px;"><strong>2. Stage 1 — Open-Source Software Stack (September 2027):</strong> Following completion of UK/PCT patent prosecution and Birmingham 80km G.652.D carrier benchmarking, the core Python acquisition software, <code>.SOR</code> parser, and Netmiko automation drivers will become Open-Source in <strong>September 2027</strong>.</p>
+            <p style="margin-bottom:12px;"><strong>1. Evaluation &amp; Open-Source Stack (September 2026):</strong> All source code, 12-bit DSP schematics, Bellcore <code>.SOR</code> parsers, and Netmiko switch automation drivers published on <code>cablehunt.co.uk</code> and <a href="https://github.com/sassil70/cablehunt" target="_blank" style="color:#f7941d;">github.com/sassil70/cablehunt</a> are released under our Stage 1 Open-Source Software Stack milestone (<strong>September 2026</strong>).</p>
+            <p style="margin-bottom:12px;"><strong>2. Stage 1 — Open-Source Software Stack (September 2026):</strong> Following completion of UK/PCT patent prosecution and Birmingham 80km G.652.D carrier benchmarking (March–September 2026), the core Python acquisition software, <code>.SOR</code> parser, and Netmiko automation drivers are published on GitHub in <strong>September 2026</strong>.</p>
             <p style="margin-bottom:12px;"><strong>3. Stage 2 — Smart Optical AI Model on Hugging Face (2029):</strong> The pre-trained weights and physics-informed 1D-CNN/Transformer optical foundation model hosted at <a href="https://huggingface.co/sassil/cablehunt-optical-ai" target="_blank" style="color:#10b981;">huggingface.co/sassil/cablehunt-optical-ai</a> are scheduled for open public release in <strong>2029</strong>, following multi-year UK Telecoms Security Act (TSA) Critical National Infrastructure safety verification.</p>
         `
     }

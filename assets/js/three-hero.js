@@ -78,7 +78,7 @@
       pulses.push({
         mesh: pulseMesh,
         progress: Math.random(),
-        speed: 0.003 + Math.random() * 0.004
+        speed: 0.0008 + Math.random() * 0.0009
       });
     }
 
@@ -140,8 +140,8 @@
     });
 
     // Slow rotation
-    fiberGroup.rotation.y += 0.0008;
-    particleMesh.rotation.y -= 0.0005;
+    fiberGroup.rotation.y += 0.00025;
+    particleMesh.rotation.y -= 0.00018;
 
     renderer.render(scene, camera);
   }

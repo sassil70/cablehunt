@@ -22,7 +22,7 @@ pipeline_tag: time-series-forecasting
 ### *Physics-Informed 1D-CNN & Spectral Transformer for 12-Bit Optical Reflectometry & 40G Brownfield Remediation*
 
 [![Scheduled Public Weights Release](https://img.shields.io/badge/Public%20Weights%20Release-Confirmed%202029-10B981?style=flat-square)](https://huggingface.co/sassil/cablehunt-optical-ai)
-[![Software Repo](https://img.shields.io/badge/GitHub%20Software%20Stack-Sept%202027%20Open%20Source-F7941D?style=flat-square&logo=github)](https://github.com/sassil70/cablehunt)
+[![Software Repo](https://img.shields.io/badge/GitHub%20Software%20Stack-Sept%202026%20Open%20Source-F7941D?style=flat-square&logo=github)](https://github.com/sassil70/cablehunt)
 [![Official UK Portal](https://img.shields.io/badge/Official%20Portal-cablehunt.co.uk-0052CC?style=flat-square)](https://cablehunt.co.uk)
 
 ---
@@ -77,7 +77,7 @@ Raw 12-Bit ADC / Bellcore .SOR Trace (4,096 Vertical Levels, N=1024 Boxcar Avera
 
 We believe in being 100% transparent with the engineering community about our release timeline:
 
-* **September 2027 — Core Software Stack Open-Source:** Our Python 12-bit DSP acquisition suite, Bellcore `.SOR` parser, and Netmiko switch drivers on GitHub ([`sassil70/cablehunt`](https://github.com/sassil70/cablehunt)) become fully Open-Source.
+* **September 2026 — Core Software Stack Open-Source:** Our Python 12-bit DSP acquisition suite, Bellcore `.SOR` parser, and Netmiko switch drivers on GitHub ([`sassil70/cablehunt`](https://github.com/sassil70/cablehunt)) become fully Open-Source.
 * **2029 — Smart Optical AI Model Public Weights Release (This Repository):** The complete pre-trained weights (`.safetensors`), waveform tokenisers, and anonymised 12-bit `.SOR` benchmark datasets for **`cablehunt-optical-ai`** are **confirmed for open public release in 2029**.
 
 ### Why 2029 for the AI Model Weights?
