@@ -132,7 +132,7 @@ window.submitCableHuntEnquiry = (event) => {
     const topic = (form.querySelector('#contact-topic')?.value || 'Technical & Pilot Enquiry').trim();
     const message = (form.querySelector('#contact-message')?.value || '').trim();
 
-    const ticketNum = 'CH-UK-2026-' + Math.floor(1000 + Math.random() * 9000);
+    const ticketNum = 'CH-UK-2025-' + Math.floor(1000 + Math.random() * 9000);
     const feedbackContainer = document.getElementById('contact-ticket-confirmation');
 
     const mailSubject = encodeURIComponent(`[${ticketNum}] ${topic} — ${name} (${org})`);
@@ -193,10 +193,10 @@ const legalModalContent = {
     },
     terms: {
         badge: 'INTELLECTUAL PROPERTY & TWO-STAGE OPEN ROADMAP',
-        title: 'Terms of Service, Software (Sept 2026) & Smart AI Model (2029)',
+        title: 'Terms of Service, Software (April 2025) & Smart AI Model (2029)',
         body: `
-            <p style="margin-bottom:12px;"><strong>1. Evaluation &amp; Open-Source Stack (September 2026):</strong> All source code, 12-bit DSP schematics, Bellcore <code>.SOR</code> parsers, and Netmiko switch automation drivers published on <code>cablehunt.co.uk</code> and <a href="https://github.com/sassil70/cablehunt" target="_blank" style="color:#f7941d;">github.com/sassil70/cablehunt</a> are released under our Stage 1 Open-Source Software Stack milestone (<strong>September 2026</strong>).</p>
-            <p style="margin-bottom:12px;"><strong>2. Stage 1 — Open-Source Software Stack (September 2026):</strong> Following completion of UK/PCT patent prosecution and Birmingham 80km G.652.D carrier benchmarking (March–September 2026), the core Python acquisition software, <code>.SOR</code> parser, and Netmiko automation drivers are published on GitHub in <strong>September 2026</strong>.</p>
+            <p style="margin-bottom:12px;"><strong>1. Research &amp; Open-Source Stack (Jan–April 2025):</strong> All source code, 12-bit DSP schematics, Bellcore <code>.SOR</code> parsers, and Netmiko switch automation drivers published on <code>cablehunt.co.uk</code> and <a href="https://github.com/sassil70/cablehunt" target="_blank" style="color:#f7941d;">github.com/sassil70/cablehunt</a> are released under our Stage 1 Open-Source Software Stack milestone (<strong>April 2025</strong>).</p>
+            <p style="margin-bottom:12px;"><strong>2. Stage 1 — Open-Source Software Stack (April 2025):</strong> Following our initial research findings and Birmingham 80km G.652.D carrier benchmarking (January–April 2025), the core Python acquisition software, <code>.SOR</code> parser, and Netmiko automation drivers were published on GitHub in <strong>April 2025</strong>.</p>
             <p style="margin-bottom:12px;"><strong>3. Stage 2 — Smart Optical AI Model on Hugging Face (2029):</strong> The pre-trained weights and physics-informed 1D-CNN/Transformer optical foundation model hosted at <a href="https://huggingface.co/sassil/cablehunt-optical-ai" target="_blank" style="color:#10b981;">huggingface.co/sassil/cablehunt-optical-ai</a> are scheduled for open public release in <strong>2029</strong>, following multi-year UK Telecoms Security Act (TSA) Critical National Infrastructure safety verification.</p>
         `
     }

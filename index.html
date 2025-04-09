@@ -2,6 +2,11 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
+  <script>
+    if (window.location.hostname.endsWith('cablehunt.co.uk') && window.location.protocol === 'http:') {
+      window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash);
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CableHunt Networks Limited | Autonomous Optical Fibre Diagnostics &amp; 40G Dynamic Remediation</title>
   
@@ -485,8 +490,8 @@
           <button class="prompt-chip-btn" onclick="window.askOpticalAI('How can network specialists arrange a collaborative technical exchange at the Birmingham testbed?')">
             <span>🏢 Birmingham Testbed Technical Session</span>
           </button>
-          <button class="prompt-chip-btn" onclick="window.askOpticalAI('Explain the Sept 2026 GitHub Open-Source release and the 2029 Smart Optical AI Model release on Hugging Face.')">
-            <span>🤗 Sept 2026 Code &amp; 2029 Hugging Face AI Model</span>
+          <button class="prompt-chip-btn" onclick="window.askOpticalAI('Explain the April 2025 GitHub Open-Source release and the 2029 Smart Optical AI Model release on Hugging Face.')">
+            <span>🤗 April 2025 Code &amp; 2029 Hugging Face AI Model</span>
           </button>
         </div>
 
@@ -852,18 +857,18 @@
         </div>
       </div>
 
-      <!-- Two-Stage Open-Source & Smart Optical AI Model Roadmap (Sept 2026 / 2029) -->
+      <!-- Two-Stage Open-Source & Smart Optical AI Model Roadmap (April 2025 / 2029) -->
       <div class="tech-card" style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(8, 12, 20, 0.98) 100%); border: 1px solid var(--ch-border);">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px;">
           <div style="flex: 1; min-width: 280px;">
             <span class="text-orange" style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;">OPEN RESEARCH &amp; CRITICAL INFRASTRUCTURE SAFETY ROADMAP</span>
-            <h3 style="font-size: 1.45rem; color: #FFFFFF; margin: 8px 0 12px 0;">Open-Source Software Stack (Sept 2026) &amp; Smart Optical AI Model (2029)</h3>
+            <h3 style="font-size: 1.45rem; color: #FFFFFF; margin: 8px 0 12px 0;">Open-Source Software Stack (Jan&ndash;April 2025) &amp; Smart Optical AI Model (2029)</h3>
             <p style="color: var(--ch-text-secondary); font-size: 0.92rem; line-height: 1.7; margin-bottom: 16px;">
-              CableHunt is committed to verifiable British engineering. Our core Python 12-bit DSP acquisition suite, Bellcore <code class="font-mono">.SOR</code> parser, and Netmiko switch drivers transitioned to an open-source release in <strong>September 2026</strong>. Our flagship physics-informed <strong>Smart Optical AI Model (<code class="font-mono">cablehunt-optical-ai</code>)</strong> on Hugging Face is scheduled for public weights release in <strong>2029</strong> following multi-year UK Telecoms Security Act (TSA) Critical National Infrastructure safety verification.
+              CableHunt is committed to verifiable British engineering. Following our initial research breakthroughs published between <strong>January and April 2025</strong>, our core Python 12-bit DSP acquisition suite, Bellcore <code class="font-mono">.SOR</code> parser, and Netmiko switch drivers were released on GitHub in <strong>April 2025</strong>. Our flagship physics-informed <strong>Smart Optical AI Model (<code class="font-mono">cablehunt-optical-ai</code>)</strong> on Hugging Face is scheduled for public weights release in <strong>2029</strong> following multi-year UK Telecoms Security Act (TSA) Critical National Infrastructure safety verification.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 12px;">
               <a href="https://github.com/sassil70/cablehunt" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="text-decoration: none;">
-                <span>★ GitHub Repository (Sept 2026 Open-Source)</span>
+                <span>★ GitHub Repository (April 2025 Release)</span>
               </a>
               <a href="https://huggingface.co/sassil/cablehunt-optical-ai" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="text-decoration: none; border-color: var(--ch-cyan); color: var(--ch-cyan);">
                 <span>🤗 Hugging Face Smart AI Model (2029 Release)</span>
@@ -871,7 +876,7 @@
             </div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 10px; min-width: 240px; font-family: var(--font-mono); font-size: 0.8rem; background: #080A0E; padding: 18px; border-radius: 8px; border: 1px solid var(--ch-border-subtle);">
-            <div><span style="color: var(--ch-text-muted);">STAGE 1 (CODE):</span> <strong class="text-orange">SEPT 2026</strong></div>
+            <div><span style="color: var(--ch-text-muted);">STAGE 1 (CODE):</span> <strong class="text-orange">APRIL 2025</strong></div>
             <div><span style="color: var(--ch-text-muted);">STAGE 2 (AI MODEL):</span> <strong class="text-cyan">2029 PUBLIC WEIGHTS</strong></div>
             <div><span style="color: var(--ch-text-muted);">ARCHITECTURE:</span> <strong class="text-green">1D-CNN + SPECTRAL PINN</strong></div>
             <div><span style="color: var(--ch-text-muted);">COMPLIANCE:</span> <strong style="color: #FFFFFF;">UK TSA &amp; CNI AUDITED</strong></div>
@@ -1034,7 +1039,7 @@
         <div>
           <h4 class="footer-col-title">Connect &amp; Open Research</h4>
           <p style="font-size: 0.84rem; color: var(--ch-text-secondary); margin-bottom: 14px;">
-            Official Channels, GitHub (Sept 2026) &amp; Hugging Face (2029)
+            Official Channels, GitHub (April 2025) &amp; Hugging Face (2029)
           </p>
           <div style="display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap;">
             <!-- Official Company LinkedIn -->
@@ -1046,7 +1051,7 @@
               𝕏
             </a>
             <!-- GitHub -->
-            <a href="https://github.com/sassil70/cablehunt" target="_blank" rel="noopener" aria-label="CableHunt GitHub Repository" title="GitHub Repository (Open-Source Sept 2026)" style="color: var(--ch-orange); font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700; background: #1B1E26; padding: 0 12px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
+            <a href="https://github.com/sassil70/cablehunt" target="_blank" rel="noopener" aria-label="CableHunt GitHub Repository" title="GitHub Repository (April 2025 Release)" style="color: var(--ch-orange); font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700; background: #1B1E26; padding: 0 12px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--ch-border-subtle); text-decoration: none;">
               GitHub
             </a>
             <!-- Hugging Face -->
@@ -1059,11 +1064,11 @@
 
       <div class="footer-bottom">
         <div>
-          &copy; 2024&ndash;2026 CableHunt Networks Limited. All rights reserved. Registered in England &amp; Wales.
+          &copy; 2024&ndash;2025 CableHunt Networks Limited. All rights reserved. Registered in England &amp; Wales.
         </div>
         <div style="display: flex; gap: 20px; flex-wrap: wrap;">
           <a href="#privacy" onclick="openLegalModal('privacy', event)" style="color: var(--ch-text-muted); text-decoration: none;">Privacy Policy</a>
-          <a href="#terms" onclick="openLegalModal('terms', event)" style="color: var(--ch-text-muted); text-decoration: none;">Terms &amp; Open Roadmap (Sept 2026 / 2029)</a>
+          <a href="#terms" onclick="openLegalModal('terms', event)" style="color: var(--ch-text-muted); text-decoration: none;">Terms &amp; Open Roadmap (April 2025 / 2029)</a>
           <a href="mailto:info@cablehunt.co.uk" style="color: var(--ch-orange); text-decoration: none;">Central Inbound: info@cablehunt.co.uk</a>
         </div>
       </div>
@@ -1107,7 +1112,7 @@
 
     <div class="ai-chat-body" id="ai-chat-body">
       <div class="chat-bubble chat-bubble-bot">
-        Welcome to CableHunt Networks (cablehunt.co.uk). I am your autonomous physical-layer optical &amp; customer support assistant. Ask me in English or Arabic about 12-Bit native sampling, our 400x optical inspection lens, our 1G-to-40G brownfield multiplier, or our Sept 2026 / 2029 roadmap.
+        Welcome to CableHunt Networks (cablehunt.co.uk). I am your autonomous physical-layer optical &amp; customer support assistant. Ask me in English or Arabic about 12-Bit native sampling, our 400x optical inspection lens, our 1G-to-40G brownfield multiplier, or our April 2025 / 2029 roadmap.
       </div>
     </div>
 
@@ -1120,14 +1125,14 @@
   </div>
 
   <!-- Master JavaScript Application Layer -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/three-hero.js"></script>
-  <script src="assets/js/three-device.js"></script>
-  <script src="assets/js/scope-slider.js"></script>
-  <script src="assets/js/roi-calculator.js"></script>
-  <script src="assets/js/spectrum-tuner.js"></script>
-  <script src="assets/js/live-terminal.js"></script>
-  <script src="assets/js/gemini-ai.js"></script>
+  <script src="assets/js/main.js?v=20250418"></script>
+  <script src="assets/js/three-hero.js?v=20250418"></script>
+  <script src="assets/js/three-device.js?v=20250418"></script>
+  <script src="assets/js/scope-slider.js?v=20250418"></script>
+  <script src="assets/js/roi-calculator.js?v=20250418"></script>
+  <script src="assets/js/spectrum-tuner.js?v=20250418"></script>
+  <script src="assets/js/live-terminal.js?v=20250418"></script>
+  <script src="assets/js/gemini-ai.js?v=20250418"></script>
 
 </body>
 </html>
