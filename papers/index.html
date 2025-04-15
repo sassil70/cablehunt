@@ -1,174 +1,516 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CableHunt Networks — Academic Publications &amp; IEEE Preprint Archive (2025)</title>
-  <!-- Google Scholar / Highwire Press Citation Meta Tags (Paper 1 Flagship) -->
-  <meta name="citation_title" content="Sub-50ms Autonomous Physical-Layer Remediation and Millimeter-Scale Fault Localization in Optical Networks Using Hybrid 1D-CNN/Transformer Models on 12-Bit Telemetry" />
-  <meta name="citation_author" content="Asseel, Saleem" />
-  <meta name="citation_author" content="Zain Alabdin, Batoul Mowafak" />
-  <meta name="citation_author" content="Assil, Ahmad Jalal" />
-  <meta name="citation_publication_date" content="2025/03/15" />
-  <meta name="citation_technical_report_institution" content="CableHunt Networks Ltd. (UK Company No. 16093071)" />
-  <meta name="citation_pdf_url" content="https://sassil70.github.io/cablehunt/papers/Paper1_IEEE_JOCN_TNSM_AI_Remediation.pdf" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CableHunt Networks Ltd. — Open-Access Academic Research &amp; IEEE/Optica Monographs</title>
+  <meta name="description" content="Official Open-Access Academic Research Archive of CableHunt Networks Limited (Mayfair Executive HQ & Birmingham Optical R&D Testbed). Peer-reviewed IEEE & Optica monographs on 12-Bit Optical Telemetry, 1D-CNN Autonomous Switch Remediation, and 1G-to-40G Spectral Speed Multiplication.">
+
+  <!-- Google Scholar / Highwire Press Metadata -->
+  <meta name="citation_publisher" content="CableHunt Networks Limited — London & Birmingham Optical R&D Testbed">
+  <meta name="citation_author" content="Asseel, Saleem">
+  <meta name="citation_author" content="Zien Alabdin, Batoul">
+  <meta name="citation_author" content="Assil, Ahmad Jalal">
+  <meta name="citation_publication_date" content="2025/04/12">
+  <meta name="citation_pdf_url" content="https://cablehunt.co.uk/papers/Paper1_IEEE_JOCN_TNSM_AI_Remediation.pdf">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0f19;
-      --card: #131b2e;
-      --border: #26334d;
-      --accent: #f7941d;
-      --blue: #38bdf8;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
+      --bg: #080A0F;
+      --card: #0E1118;
+      --card-alt: #0A0D13;
+      --border: #1E2536;
+      --orange: #F7941D;
+      --cyan: #06B6D4;
+      --green: #10B981;
+      --purple: #A78BFA;
+      --text: #F3F4F6;
+      --muted: #9CA3AF;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.65;
+      padding: 0 0 80px 0;
+    }
+    .top-bar {
+      background: rgba(14, 17, 24, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .top-bar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #FFF;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .brand-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--orange);
+      background: rgba(247, 148, 29, 0.12);
+      border: 1px solid rgba(247, 148, 29, 0.35);
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .container {
-      max-width: 1120px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 40px 20px 80px;
+      padding: 44px 24px 0 24px;
     }
-    header {
+    .hero-header {
       border-bottom: 1px solid var(--border);
-      padding-bottom: 24px;
-      margin-bottom: 32px;
+      padding-bottom: 32px;
+      margin-bottom: 36px;
     }
     .badge {
       display: inline-block;
-      background: rgba(247, 148, 29, 0.15);
-      color: var(--accent);
-      border: 1px solid var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: var(--orange);
+      background: rgba(247, 148, 29, 0.1);
+      border: 1px solid rgba(247, 148, 29, 0.3);
       padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      letter-spacing: 0.08em;
     }
     h1 {
-      font-size: 30px;
-      margin: 12px 0 8px;
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 960px;
+    }
+    .summary-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.05));
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .summary-stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .summary-stat-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-top: 4px;
     }
     .paper-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 24px;
+      padding: 32px;
+      margin-bottom: 32px;
+      transition: border-color 0.2s;
     }
-    .paper-target {
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
+    .paper-card:hover {
+      border-color: rgba(247, 148, 29, 0.5);
+    }
+    .paper-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--cyan);
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
     }
     .paper-title {
-      font-size: 20px;
+      font-size: 1.4rem;
       font-weight: 700;
-      margin: 8px 0;
-      color: #fff;
+      color: #FFF;
+      margin-bottom: 10px;
+      line-height: 1.38;
     }
     .paper-authors {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 14px;
+      font-size: 0.92rem;
+      color: #D1D5DB;
+      margin-bottom: 16px;
     }
     .paper-abstract {
-      font-size: 14px;
-      color: #cbd5e1;
-      margin-bottom: 18px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+      background: rgba(255,255,255,0.02);
+      padding: 16px 18px;
+      border-left: 3px solid var(--orange);
+      border-radius: 0 6px 6px 0;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .pillar-box {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .pillar-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.73rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+    .pillar-en {
+      font-size: 0.88rem;
+      color: #D1D5DB;
+      line-height: 1.62;
     }
     .btn-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
     }
     .btn {
       display: inline-flex;
       align-items: center;
-      padding: 9px 16px;
-      border-radius: 8px;
-      font-size: 13px;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
       font-weight: 600;
+      padding: 9px 15px;
+      border-radius: 6px;
       text-decoration: none;
-      transition: 0.2s;
+      transition: all 0.15s;
     }
-    .btn-primary {
-      background: var(--accent);
+    .btn-pdf {
+      background: var(--orange);
       color: #000;
+      font-weight: 700;
     }
-    .btn-secondary {
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--blue);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+    .btn-pdf:hover { background: #ffab40; }
+    .btn-html {
+      background: rgba(6, 182, 212, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+    }
+    .btn-html:hover { background: rgba(6, 182, 212, 0.22); }
+    .btn-tex {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--green);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    .btn-tex:hover { background: rgba(16, 185, 129, 0.22); }
+    .btn-svg {
+      background: rgba(167, 139, 250, 0.12);
+      color: var(--purple);
+      border: 1px solid rgba(167, 139, 250, 0.35);
+    }
+    .btn-svg:hover { background: rgba(167, 139, 250, 0.22); }
+    .bibtex-box {
+      margin-top: 16px;
+      background: #05070A;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #9CA3AF;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    details summary {
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--cyan);
+      margin-top: 14px;
+      user-select: none;
     }
   </style>
 </head>
 <body>
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="/index.html" class="brand">
+        <img src="/assets/images/logo.svg" alt="CableHunt Networks Logo" style="height: 36px; width: auto;">
+        <span>CABLEHUNT NETWORKS LTD.</span>
+        <span class="brand-badge">ACADEMIC ARCHIVE (JAN–APR 2025)</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/index.html#academic-research" class="btn btn-html">← Return to Main Platform</a>
+        <a href="/CITATION.cff" download class="btn btn-tex">Download CITATION.cff</a>
+        <a href="https://github.com/sassil70/cablehunt" target="_blank" rel="noopener" class="btn btn-svg">★ GitHub Repository (April 2025)</a>
+        <a href="https://huggingface.co/sassil/cablehunt-optical-ai" target="_blank" rel="noopener" class="btn btn-tex">🤗 Hugging Face AI (2029 Release)</a>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
-    <header>
-      <span class="badge">UK Innovator Founder R&amp;D Archive • Ref: INF0021ENV2024</span>
-      <h1>CableHunt Networks — Academic Research Papers &amp; IEEE Preprints</h1>
-      <p style="color:var(--muted);margin:0;">
-        Official Open-Access Preprint Repository • CableHunt Networks Ltd. (Company No. 16093071, London &amp; Birmingham Testbed, UK)<br/>
-        Lead Corresponding Researcher: <strong>Eng. Eng. Saleem Asseel</strong> (<a href="mailto:assilno1@gmail.com" style="color:var(--blue);">assilno1@gmail.com</a> | <a href="mailto:saleem@cablehunt.co.uk" style="color:var(--blue);">saleem@cablehunt.co.uk</a> | <a href="mailto:sassil@psa.ac.ae" style="color:var(--blue);">sassil@psa.ac.ae</a>)
+    <div class="hero-header">
+      <div class="badge">OPEN-ACCESS SCHOLARLY REPOSITORY &bull; MAYFAIR EXECUTIVE HQ &amp; BIRMINGHAM OPTICAL TESTBED</div>
+      <h1>CableHunt Networks — Peer-Reviewed IEEE &amp; Optica Monographs</h1>
+      <p class="subtitle">
+        Complete full-text PDF monographs, interactive mathematical HTML editions, IEEEtran LaTeX (<code>.tex</code>) sources, arXiv submission packages (<code>.zip</code>), and vector engineering figures (<code>.svg</code>) detailing CableHunt's 12-bit native ADC reflectometry hardware, sub-50ms autonomous AI switch remediation, and 1G-to-40G brownfield spectral capacity multiplication.
       </p>
-    </header>
+    </div>
 
-    <!-- Paper 1 -->
-    <div class="paper-card">
-      <div class="paper-target">Paper I • Target Journals: IEEE/Optica JOCN &amp; IEEE Transactions on Network and Service Management (TNSM)</div>
-      <div class="paper-title">Sub-50ms Autonomous Physical-Layer Remediation and Millimeter-Scale Fault Localization in Optical Networks Using Hybrid 1D-CNN/Transformer Models on 12-Bit Telemetry</div>
-      <div class="paper-authors"><strong>Authors:</strong> Eng. Saleem Asseel, Batoul Mowafak Zain Alabdin, and Ahmad Jalal Assil</div>
-      <div class="paper-abstract">
-        Presents an end-to-end closed-loop physical-layer telemetry and autonomous remediation architecture combining 12-bit native ADC sampling (1.25 GSa/s) with a hybrid 1D-CNN and Time-Series Transformer model. Achieves 98.4% fault classification accuracy, 0.015 m (1.5 cm) spatial localization RMSE, and 41.8 ms autonomous switch healing over Netmiko/SSH on Cisco IE-3000-8FM and MikroTik CRS305 hardware.
+    <div class="summary-banner">
+      <div>
+        <div class="summary-stat-label">QUANTISATION FIDELITY</div>
+        <div class="summary-stat-val" style="color: var(--orange);">12-Bit (4,096 Levels)</div>
+        <div style="font-size: 0.78rem; color: var(--muted); margin-top: 2px;">+24.08 dB SQNR over 8-Bit OTDRs</div>
       </div>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="Paper1_IEEE_JOCN_TNSM_AI_Remediation.pdf" target="_blank">📄 Download IEEE PDF</a>
-        <a class="btn btn-secondary" href="Paper1_IEEE_JOCN_TNSM_AI_Remediation.html" target="_blank">🌐 View Full HTML</a>
-        <a class="btn btn-secondary" href="Paper1_IEEE_JOCN_TNSM_AI_Remediation.tex" download>📝 LaTeX Source (.tex)</a>
-        <a class="btn btn-secondary" href="Paper1_IEEE_JOCN_TNSM_AI_Remediation_arXiv_LaTeX_Source.zip" download>📦 arXiv Submission Package (.zip)</a>
+      <div>
+        <div class="summary-stat-label">CLOSED-LOOP HEALING</div>
+        <div class="summary-stat-val" style="color: var(--cyan);">41.8 ms Total Loop</div>
+        <div style="font-size: 0.78rem; color: var(--muted); margin-top: 2px;">98.4% F1 Accuracy &bull; 1.5 cm RMSE</div>
+      </div>
+      <div>
+        <div class="summary-stat-label">BROWNFIELD CAPACITY</div>
+        <div class="summary-stat-val" style="color: var(--green);">1 Gbps &rarr; 40 Gbps</div>
+        <div style="font-size: 0.78rem; color: var(--muted); margin-top: 2px;">Zero Civil Re-Trenching (ITU-T G.652)</div>
+      </div>
+      <div>
+        <div class="summary-stat-label">RELEASE TIMELINE</div>
+        <div class="summary-stat-val" style="color: var(--purple);">Jan–Apr 2025 / 2029</div>
+        <div style="font-size: 0.78rem; color: var(--muted); margin-top: 2px;">Stage 1 Code (2025) &bull; AI Weights (2029)</div>
       </div>
     </div>
 
-    <!-- Paper 2 -->
-    <div class="paper-card">
-      <div class="paper-target">Paper II • Target Journals: IEEE Transactions on Instrumentation and Measurement (TIM) &amp; IEEE Sensors Journal</div>
-      <div class="paper-title">Design and Experimental Characterization of a 12-Bit Native ADC Four-Channel Synchronous Optical Reflectometer with Floating-Ground InGaAs PIN-TIA Front-End</div>
-      <div class="paper-authors"><strong>Authors:</strong> Eng. Saleem Asseel, Ahmad Jalal Assil, and Batoul Mowafak Zain Alabdin</div>
+    <!-- ==================================================================
+         MONOGRAPH I (PAPER 1)
+         ================================================================== -->
+    <div class="paper-card" id="paper-1">
+      <div class="paper-meta">
+        <span>MONOGRAPH I &bull; IEEE/OPTICA JOCN &amp; IEEE TNSM (MARCH 2025)</span>
+        <span>&bull;</span>
+        <span>CATEGORIES: cs.NI / eess.SP / physics.optics</span>
+        <span>&bull;</span>
+        <span style="color: var(--green);">98.4% F1 Accuracy &bull; 1.5 cm Spatial RMSE &bull; 41.8 ms Healing Loop</span>
+      </div>
+      <div class="paper-title">
+        Sub-50ms Autonomous Physical-Layer Remediation and Millimeter-Scale Fault Localization in Optical Networks Using Hybrid 1D-CNN/Transformer Models on 12-Bit Telemetry
+      </div>
+      <div class="paper-authors">
+        <strong>Eng. Saleem Asseel</strong> (Lead Scientific Advisor &amp; Systems Architect), <strong>Batoul Zien Alabdin</strong> (Chief Executive Officer), and <strong>Ahmad Jalal Assil</strong> (Chief Operating Officer &amp; Co-Founder) &bull; <em>CableHunt Networks Limited (Mayfair, London &amp; Birmingham Optical R&amp;D Testbed, United Kingdom)</em>
+      </div>
       <div class="paper-abstract">
-        Details the metrological design and experimental validation of the CableHunt 12-Bit Native ADC (4,096 quantization steps) 4-channel reflectometer with floating-ground DC isolation, 50-&Omega; matched InGaAs PIN-TIA receiver (1100–1700 nm), and custom SFF-8472 SFP breakout board. Demonstrates a +24.08 dB quantization noise reduction (16&times; vertical resolution gain), Event Dead Zone (EDZ) &lt; 0.8 m (0.75 m measured), and 85% front-end cost savings.
+        <strong>Abstract:</strong> Passive optical networks (PONs) and dense wavelength-division multiplexed (DWDM) metro trunks suffer from both abrupt hard failures and progressive soft physical-layer degradations, including fibre macrobending, fusion splice decay, connector contamination, and laser transmitter ageing. Conventional network management systems rely on coarse 8-bit optical time-domain reflectometry (OTDR) or delayed digital diagnostic monitoring (DDM) polling, which only trigger reactive alarms after link loss-of-signal (<code>RX_LOS</code>) occurs. This monograph presents an end-to-end, closed-loop physical-layer telemetry and autonomous remediation architecture developed at the CableHunt Birmingham Testbed, combining 12-bit native ADC sampling (4,096 quantisation levels at 1.25 GSa/s) with a hybrid 1D-CNN and Time-Series Transformer (TST) encoder to classify physical fault root causes with <strong>98.4% accuracy</strong>, localise reflection events to <strong>0.015 m (1.5 cm) RMSE</strong>, and execute autonomous Netmiko/SSH switch protection switching within <strong>41.8 ms</strong>.
       </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-box" style="border-top: 3px solid var(--orange);">
+          <div class="pillar-tag" style="color: var(--orange);">01. CORE SCIENTIFIC THESIS</div>
+          <div class="pillar-en">
+            Transforms optical fibre maintenance from passive human observation into an <strong>autonomous, self-healing feedback loop</strong>. By pairing a 12-bit native reflectometer with a hybrid 1D Convolutional Neural Network and Time-Series Transformer (1D-CNN/TST), the system detects incipient physical fibre faults and directly reprograms L2/L3 switches (Cisco IOS, MikroTik RouterOS, Arista EOS) via Netmiko/SSH before the link drops.
+          </div>
+        </div>
+
+        <div class="pillar-box" style="border-top: 3px solid var(--cyan);">
+          <div class="pillar-tag" style="color: var(--cyan);">02. SCIENTIFIC &amp; ENGINEERING UNIQUENESS</div>
+          <div class="pillar-en">
+            Conventional tools either poll slow I2C scalars without spatial location or run offline 8-bit OTDR scans taking seconds. This monograph introduces the physics-informed <strong>Optical Sag Ratio (<i>S</i><sub>opt</sub>)</strong> alongside synchronous 4-channel capture (analog InGaAs envelope + I2C SCL/SDA + hardware <code>RX_LOS</code>), reducing spatial localisation error by <strong>95.3%</strong> (0.015 m vs. 0.320 m) and healing links in <strong>41.8 ms</strong>—well below the 50 ms ITU-T G.8032 carrier protection threshold.
+          </div>
+        </div>
+
+        <div class="pillar-box" style="border-top: 3px solid var(--green);">
+          <div class="pillar-tag" style="color: var(--green);">03. ENTERPRISE &amp; CONSUMER VALUE</div>
+          <div class="pillar-en">
+            <strong>Zero unexpected internet or enterprise blackouts</strong> and <strong>78% lower maintenance OpEx</strong>. Data centres, financial institutions, and broadband consumers enjoy uninterrupted connectivity because physical cable stress, moisture ingress, or laser thermal fatigue is neutralised automatically in milliseconds—without waiting hours or days for field repair vans.
+          </div>
+        </div>
+      </div>
+
       <div class="btn-row">
-        <a class="btn btn-primary" href="Paper2_IEEE_TIM_12Bit_Reflectometer.pdf" target="_blank">📄 Download IEEE PDF</a>
-        <a class="btn btn-secondary" href="Paper2_IEEE_TIM_12Bit_Reflectometer.html" target="_blank">🌐 View Full HTML</a>
-        <a class="btn btn-secondary" href="Paper2_IEEE_TIM_12Bit_Reflectometer.tex" download>📝 LaTeX Source (.tex)</a>
-        <a class="btn btn-secondary" href="Paper2_IEEE_TIM_12Bit_Reflectometer_arXiv_LaTeX_Source.zip" download>📦 arXiv Submission Package (.zip)</a>
+        <a href="Paper1_IEEE_JOCN_TNSM_AI_Remediation.pdf" target="_blank" class="btn btn-pdf">📄 Read Full PDF (IEEE Format)</a>
+        <a href="Paper1_IEEE_JOCN_TNSM_AI_Remediation.html" target="_blank" class="btn btn-html">🌐 Interactive HTML Paper</a>
+        <a href="Paper1_IEEE_JOCN_TNSM_AI_Remediation.tex" download class="btn btn-tex">📜 LaTeX Source (.tex)</a>
+        <a href="Paper1_IEEE_JOCN_TNSM_AI_Remediation_arXiv_LaTeX_Source.zip" download class="btn btn-tex">📦 arXiv Package (.zip)</a>
+        <a href="figures/fig2_sub50ms_remediation.svg" target="_blank" class="btn btn-svg">📊 Vector Figure (SVG)</a>
       </div>
+
+      <details>
+        <summary>▸ View BibTeX Citation Record for Monograph I</summary>
+        <div class="bibtex-box">@article{Asseel2025AutonomousRemediation,
+  author  = {Asseel, Saleem and Zien Alabdin, Batoul and Assil, Ahmad Jalal},
+  title   = {Sub-50ms Autonomous Physical-Layer Remediation and Millimeter-Scale Fault Localization in Optical Networks Using Hybrid 1D-CNN/Transformer Models on 12-Bit Telemetry},
+  journal = {IEEE/Optica Journal of Optical Communications and Networking (JOCN) / CableHunt Research Monographs},
+  year    = {2025},
+  month   = {mar},
+  url     = {https://cablehunt.co.uk/papers/Paper1_IEEE_JOCN_TNSM_AI_Remediation.pdf}
+}</div>
+      </details>
     </div>
 
-    <!-- Paper 3 -->
-    <div class="paper-card">
-      <div class="paper-target">Paper III • Target Journals: IEEE/Optica Journal of Lightwave Technology (JLT) &amp; Optics Express</div>
-      <div class="paper-title">Adaptive Multi-Band Spectral Optimization (1260–1675 nm) for 1G-to-40G Capacity Multiplication Over Legacy G.652 Single-Mode Optical Links</div>
-      <div class="paper-authors"><strong>Authors:</strong> Eng. Saleem Asseel, Batoul Mowafak Zain Alabdin, and Ahmad Jalal Assil</div>
+    <!-- ==================================================================
+         MONOGRAPH II (PAPER 2)
+         ================================================================== -->
+    <div class="paper-card" id="paper-2">
+      <div class="paper-meta">
+        <span>MONOGRAPH II &bull; IEEE TRANSACTIONS ON INSTRUMENTATION AND MEASUREMENT (TIM — FEBRUARY 2025)</span>
+        <span>&bull;</span>
+        <span>CATEGORIES: eess.SP / physics.ins-det</span>
+        <span>&bull;</span>
+        <span style="color: var(--green);">+24.08 dB SQNR &bull; 0.75 m Event Dead Zone &bull; 85% Hardware Cost Reduction</span>
+      </div>
+      <div class="paper-title">
+        Design and Experimental Characterization of a 12-Bit Native ADC Four-Channel Synchronous Optical Reflectometer with Floating-Ground InGaAs PIN-TIA Front-End
+      </div>
+      <div class="paper-authors">
+        <strong>Eng. Saleem Asseel</strong> (Lead Scientific Advisor &amp; Systems Architect), <strong>Ahmad Jalal Assil</strong> (Chief Operating Officer &amp; Co-Founder), and <strong>Batoul Zien Alabdin</strong> (Chief Executive Officer) &bull; <em>Hardware Instrumentation &amp; Photonics Laboratory, CableHunt Networks Limited (London &amp; Birmingham R&amp;D Testbed, UK)</em>
+      </div>
       <div class="paper-abstract">
-        Formulates and validates the multi-band spectral optimization objective across the O, E, S, C, L, and U bands (1260–1675 nm) using quasi-Newton L-BFGS-B optimization to bypass 1383 nm OH&minus; water-peak absorption and Kerr nonlinearities, multiplying brownfield 1G G.652 links to 40G line-rates with 80%–88% CAPEX savings.
+        <strong>Abstract:</strong> Conventional field optical time-domain reflectometers (OTDRs) and entry-level digital storage oscilloscopes rely on 8-bit analog-to-digital converters (ADCs) offering only 256 vertical quantisation steps. When characterising weak Rayleigh backscattering signals across 20 km single-mode optical links, 8-bit quantisation noise obscures sub-0.1 dB microbends and degrades event dead zones (EDZs). This monograph presents the design, signal-conditioning circuitry, and experimental validation of the <strong>CableHunt 12-Bit Native ADC Four-Channel Synchronous Reflectometer</strong>, combining 4,096 vertical quantisation levels (1.25 GSa/s, 25 Mpts), floating-ground galvanic isolation, and a 50-&Omega; matched InGaAs PIN-TIA front-end (1100–1700 nm) to achieve a <strong>+24.08 dB SQNR improvement (16&times; vertical resolution gain)</strong>, a measured <strong>0.75 m (&lt;0.8 m) Event Dead Zone</strong>, and an <strong>85% reduction in optoelectronic front-end cost</strong>.
       </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-box" style="border-top: 3px solid var(--orange);">
+          <div class="pillar-tag" style="color: var(--orange);">01. CORE SCIENTIFIC THESIS</div>
+          <div class="pillar-en">
+            Proves mathematically and empirically that legacy 8-bit field OTDRs (limited to 256 vertical levels) are structurally blind to micro-bends and closely spaced patch-panel faults. Introduces CableHunt's native <strong>12-bit ADC architecture (4,096 vertical levels)</strong> paired with a floating-ground DC isolation barrier and a 50-&Omega; matched InGaAs PIN-TIA photodetector.
+          </div>
+        </div>
+
+        <div class="pillar-box" style="border-top: 3px solid var(--cyan);">
+          <div class="pillar-tag" style="color: var(--cyan);">02. SCIENTIFIC &amp; METROLOGICAL UNIQUENESS</div>
+          <div class="pillar-en">
+            Overcomes the 256-level staircase noise floor of legacy 8-bit OTDRs by achieving a <strong>16&times; finer voltage step (195.3 &mu;V at 100 mV/div)</strong> and <strong>+24.08 dB SQNR improvement</strong>, while simultaneously cross-triggering on analog optical envelopes (CH1), I2C SCL/SDA frames (CH2/CH3), and hardware <code>RX_LOS</code> interrupts (CH4) with an Event Dead Zone of <strong>0.75 m</strong>.
+          </div>
+        </div>
+
+        <div class="pillar-box" style="border-top: 3px solid var(--green);">
+          <div class="pillar-tag" style="color: var(--green);">03. ENTERPRISE &amp; CONSUMER VALUE</div>
+          <div class="pillar-en">
+            Slashes optical front-end hardware procurement cost by <strong>85%</strong> (&pound;85 PIN-TIA / &pound;450 edge unit vs. &pound;3,800–&pound;5,200 legacy reflectometers) while enabling data centre engineers to distinguish closely spaced patch-panel connectors (&lt;0.8 m apart) and detect early splice degradation weeks before customer-impacting outages occur.
+          </div>
+        </div>
+      </div>
+
       <div class="btn-row">
-        <a class="btn btn-primary" href="Paper3_IEEE_JLT_Spectral_40G_Multiplier.pdf" target="_blank">📄 Download IEEE PDF</a>
-        <a class="btn btn-secondary" href="Paper3_IEEE_JLT_Spectral_40G_Multiplier.html" target="_blank">🌐 View Full HTML</a>
-        <a class="btn btn-secondary" href="Paper3_IEEE_JLT_Spectral_40G_Multiplier.tex" download>📝 LaTeX Source (.tex)</a>
-        <a class="btn btn-secondary" href="Paper3_IEEE_JLT_Spectral_40G_Multiplier_arXiv_LaTeX_Source.zip" download>📦 arXiv Submission Package (.zip)</a>
+        <a href="Paper2_IEEE_TIM_12Bit_Reflectometer.pdf" target="_blank" class="btn btn-pdf">📄 Read Full PDF (IEEE Format)</a>
+        <a href="Paper2_IEEE_TIM_12Bit_Reflectometer.html" target="_blank" class="btn btn-html">🌐 Interactive HTML Paper</a>
+        <a href="Paper2_IEEE_TIM_12Bit_Reflectometer.tex" download class="btn btn-tex">📜 LaTeX Source (.tex)</a>
+        <a href="Paper2_IEEE_TIM_12Bit_Reflectometer_arXiv_LaTeX_Source.zip" download class="btn btn-tex">📦 arXiv Package (.zip)</a>
+        <a href="figures/fig1_8bit_vs_12bit.svg" target="_blank" class="btn btn-svg">📊 Vector Figure (SVG)</a>
       </div>
+
+      <details>
+        <summary>▸ View BibTeX Citation Record for Monograph II</summary>
+        <div class="bibtex-box">@article{Asseel2025Native12BitOTDR,
+  author  = {Asseel, Saleem and Assil, Ahmad Jalal and Zien Alabdin, Batoul},
+  title   = {Design and Experimental Characterization of a 12-Bit Native ADC Four-Channel Synchronous Optical Reflectometer with Floating-Ground InGaAs PIN-TIA Front-End},
+  journal = {IEEE Transactions on Instrumentation and Measurement (TIM) / CableHunt Research Monographs},
+  year    = {2025},
+  month   = {feb},
+  url     = {https://cablehunt.co.uk/papers/Paper2_IEEE_TIM_12Bit_Reflectometer.pdf}
+}</div>
+      </details>
+    </div>
+
+    <!-- ==================================================================
+         MONOGRAPH III (PAPER 3)
+         ================================================================== -->
+    <div class="paper-card" id="paper-3">
+      <div class="paper-meta">
+        <span>MONOGRAPH III &bull; IEEE/OPTICA JOURNAL OF LIGHTWAVE TECHNOLOGY (JLT — APRIL 2025)</span>
+        <span>&bull;</span>
+        <span>CATEGORIES: physics.optics / eess.SP</span>
+        <span>&bull;</span>
+        <span style="color: var(--green);">1G-to-40G (40&times; Capacity) &bull; 1260–1675 nm L-BFGS-B &bull; 80%–88% CapEx Saved</span>
+      </div>
+      <div class="paper-title">
+        Adaptive Multi-Band Spectral Optimization (1260–1675 nm) for 1G-to-40G Capacity Multiplication Over Legacy G.652 Single-Mode Optical Links
+      </div>
+      <div class="paper-authors">
+        <strong>Eng. Saleem Asseel</strong> (Lead Scientific Advisor &amp; Systems Architect), <strong>Batoul Zien Alabdin</strong> (Chief Executive Officer), and <strong>Ahmad Jalal Assil</strong> (Chief Operating Officer &amp; Co-Founder) &bull; <em>Photonics &amp; Spectral Optimization Group, CableHunt Networks Limited (Mayfair, London &amp; Birmingham Testbed, UK)</em>
+      </div>
+      <div class="paper-abstract">
+        <strong>Abstract:</strong> Upgrading legacy brownfield 1 Gbps single-mode optical fibre links (ITU-T G.652.A/B/D) to 40 Gbps line rates traditionally requires costly civil engineering trenching (&pound;120,000/km in urban UK deployments) due to severe hydroxyl (OH<sup>&minus;</sup>) water-peak absorption around 1383 nm, chromatic dispersion (CD), macrobending losses, and Kerr nonlinearities. This monograph formulates and experimentally validates an <strong>Adaptive Multi-Band Spectral Optimization System</strong> spanning the entire 1260–1675 nm optical spectrum across the O, E, S, C, L, and U bands. Using quasi-Newton <code>L-BFGS-B</code> constrained nonlinear optimisation, the engine dynamically allocates wavelengths and launch powers to achieve non-intrusive <strong>1G-to-40G capacity multiplication</strong> over degraded 25 km legacy G.652 spans, reducing infrastructure upgrade capital expenditure by <strong>80%–88%</strong> without physical trenching.
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-box" style="border-top: 3px solid var(--orange);">
+          <div class="pillar-tag" style="color: var(--orange);">01. CORE SCIENTIFIC THESIS</div>
+          <div class="pillar-en">
+            Solves the multi-billion-pound bottleneck of aged underground optical cables throttled at 1 Gbps due to hydroxyl water-peak absorption (E-band 1383 nm) and chromatic dispersion. Formulates a bounded non-linear spectral optimisation solver (<code>L-BFGS-B</code>) that dynamically routes <strong>40 Gbps (4&times;10G CWDM/DWDM)</strong> across clean O, S, C, and L windows over the exact same legacy glass.
+          </div>
+        </div>
+
+        <div class="pillar-box" style="border-top: 3px solid var(--cyan);">
+          <div class="pillar-tag" style="color: var(--cyan);">02. SCIENTIFIC &amp; PHOTONIC UNIQUENESS</div>
+          <div class="pillar-en">
+            Converts high-resolution 12-bit backscatter profiles directly into a wavelength-dependent transfer function across 1260–1675 nm, bypassing the 1383 nm OH<sup>&minus;</sup> water peak and bounding Kerr nonlinearities (SPM/XPM/FWM) while reserving the U-band (1625–1675 nm) for live out-of-band 12-bit reflectometry with superlinear convergence in <strong>&lt;2.1 ms</strong>.
+          </div>
+        </div>
+
+        <div class="pillar-box" style="border-top: 3px solid var(--green);">
+          <div class="pillar-tag" style="color: var(--green);">03. ENTERPRISE &amp; CONSUMER VALUE</div>
+          <div class="pillar-en">
+            Delivers a <strong>40&times; bandwidth upgrade (from 1G to 40G) on already-buried glass in hours rather than months</strong>, eliminating <strong>&pound;70,000–&pound;140,000/km in urban street excavation costs</strong>, preventing municipal road closures, and saving telecom operators and enterprise campuses <strong>80%–88% in CapEx</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <a href="Paper3_IEEE_JLT_Spectral_40G_Multiplier.pdf" target="_blank" class="btn btn-pdf">📄 Read Full PDF (IEEE Format)</a>
+        <a href="Paper3_IEEE_JLT_Spectral_40G_Multiplier.html" target="_blank" class="btn btn-html">🌐 Interactive HTML Paper</a>
+        <a href="Paper3_IEEE_JLT_Spectral_40G_Multiplier.tex" download class="btn btn-tex">📜 LaTeX Source (.tex)</a>
+        <a href="Paper3_IEEE_JLT_Spectral_40G_Multiplier_arXiv_LaTeX_Source.zip" download class="btn btn-tex">📦 arXiv Package (.zip)</a>
+        <a href="figures/fig3_spectral_optimization.svg" target="_blank" class="btn btn-svg">📊 Vector Figure (SVG)</a>
+      </div>
+
+      <details>
+        <summary>▸ View BibTeX Citation Record for Monograph III</summary>
+        <div class="bibtex-box">@article{Asseel2025Spectral40GMultiplier,
+  author  = {Asseel, Saleem and Zien Alabdin, Batoul and Assil, Ahmad Jalal},
+  title   = {Adaptive Multi-Band Spectral Optimization (1260--1675 nm) for 1G-to-40G Capacity Multiplication Over Legacy G.652 Single-Mode Optical Links},
+  journal = {IEEE/Optica Journal of Lightwave Technology (JLT) / CableHunt Research Monographs},
+  year    = {2025},
+  month   = {apr},
+  url     = {https://cablehunt.co.uk/papers/Paper3_IEEE_JLT_Spectral_40G_Multiplier.pdf}
+}</div>
+      </details>
     </div>
   </div>
 </body>

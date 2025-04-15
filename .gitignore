@@ -26,7 +26,18 @@ run_live_audit.py
 *.mp4
 *.ogg
 
-# Test Artifacts & Live Audits
+# Test Artifacts, Portal Screenshots & Live Audits
+papers/portal_screenshots/
+generate_academic_papers.py
+submit_*.py
+complete_*.py
+check_*.py
+inspect_*.py
+verify_*.py
+create_*.py
+upload_*.py
+register_*.py
+test_*.py
 test_results/
 live_audit_results/
 test_out.txt

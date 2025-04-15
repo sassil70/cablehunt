@@ -4,6 +4,8 @@
 معلومات الشركة التقنية/
 ملاحطات المدير العام/
 test_results/
+live_audit_results/
+papers/portal_screenshots/
 *.py
 *.json
 *.txt

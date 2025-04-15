@@ -159,13 +159,13 @@ We are a British deep-tech optical venture incorporated under the UK Companies A
 
 * **Eng. Saleem Asseel** — *Lead Scientific Advisor & Systems Architect*  
   Systems engineer (graduated '96) and principal architect of the 12-bit ADC testbed, optical DSP pipeline, spectral optimisation models, and Netmiko switch drivers.  
-  Direct contacts: [`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk) • [`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk) • [`assilno1@gmail.com`](mailto:assilno1@gmail.com)
+  Direct contact: [`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk)
 * **Batoul Zien Alabdin** — *Chief Executive Officer (CEO)*  
   Directs strategic executive oversight, corporate capitalisation, British commercial compliance, and institutional partnerships.  
   Direct contact: [`batoul@cablehunt.co.uk`](mailto:batoul@cablehunt.co.uk)
 * **Ahmad Jalal Assil** — *Chief Operating Officer (COO) & Co-Founder*  
   Over a decade of physical network infrastructure experience. Directs hardware supply chains, UK regulatory compliance, and international field operations.  
-  Direct contacts: [`jalal@cablehunt.co.uk`](mailto:jalal@cablehunt.co.uk) • [`jalal@cablehunt.co.uk`](mailto:jalal@cablehunt.co.uk)
+  Direct contact: [`jalal@cablehunt.co.uk`](mailto:jalal@cablehunt.co.uk)
 
 ---
 
@@ -174,12 +174,12 @@ We are a British deep-tech optical venture incorporated under the UK Companies A
 Whether you run a regional fibre network, manage a data centre in Slough or Docklands, or just appreciate proper hardware engineering, we are always up for a sensible technical chat.
 
 * **Mayfair Executive Headquarters:** 3rd Floor, 45 Albemarle Street, Mayfair, London, W1S 4JL, United Kingdom
-* **Registered Office:** 70 Colombo Street, London, SE1 8EE, United Kingdom
 * **Birmingham Optical R&D Testbed:** 80 km G.652.D / G.657.A1 Hardware-in-the-Loop Facility, Birmingham, West Midlands, UK
-* **Central Enquiries:** [`info@cablehunt.co.uk`](mailto:info@cablehunt.co.uk)
+* **Central Enquiries & Support Desk:** [`info@cablehunt.co.uk`](mailto:info@cablehunt.co.uk) • Tel: `+44 20 78702243`
 * **Systems Architect:** [`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk)
 * **Operations & Field Trials:** [`jalal@cablehunt.co.uk`](mailto:jalal@cablehunt.co.uk)
 * **Executive Office:** [`batoul@cablehunt.co.uk`](mailto:batoul@cablehunt.co.uk)
+* **Peer-Reviewed Academic Archive:** **[https://cablehunt.co.uk/papers/](https://cablehunt.co.uk/papers/)**
 * **Official Website:** **[https://cablehunt.co.uk](https://cablehunt.co.uk)**
 
 ---
