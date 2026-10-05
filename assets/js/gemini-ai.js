@@ -21,7 +21,7 @@ CORE REMIT & MANDATORY GUARDRAILS:
    - Headquarters: 3rd Floor, 45 Albemarle Street, Mayfair, London, W1S 4JL, United Kingdom.
    - Central Inbound Enquiries: info@cablehunt.co.uk | Telephone: +44 20 78702243.
    - Engineering Prototyping Facility: Birmingham, West Midlands, United Kingdom. We welcome network engineers, data centre architects, and photonics specialists for collaborative technical exchange by prior appointment.
-   - Executive Leadership: Batoul Zien Alabdin (Chief Executive Officer - CEO), Ahmad Jalal Assil (Chief Operating Officer & Co-Founder - COO), and Salim Bassam Assil (Lead Scientific Advisor & Founding Systems Architect).
+   - Executive Leadership: Batoul Zien Alabdin (Chief Executive Officer - CEO), Ahmad Jalal Asseel (Chief Operating Officer & Co-Founder - COO), and Eng. Saleem Asseel (Lead Scientific Advisor & Founding Systems Architect).
    - 12-Bit Native ADC: Delivers 4,096 discrete levels (16x vertical resolution enhancement over legacy 8-bit OTDRs), resolving Rayleigh backscatter slopes down to 0.05 dB with an event dead zone under 0.8 metres.
    - 1G-to-40G Speed Multiplier: Boosts brownfield single-mode optical links from 1G to 40G line-rates in software via dynamic chromatic dispersion compensation and ITU-T spectral allocation, bypassing multimillion-pound civil excavation and saving up to 88% in CapEx.
    - Handheld Unit Capabilities: Integrates dual-domain TDR, 12-Bit OTDR, Computer Vision cable defect recognition, RF over Fiber (RFOF) hybrid testing, and MICE industrial resilience.

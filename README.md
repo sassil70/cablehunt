@@ -139,12 +139,12 @@ Just open the live build on your phone or laptop:
 
 We are a small, focused British deep-tech venture backed under the **UK Innovator Founder Framework** (officially endorsed by **Envestors Limited**, regulated by the FCA):
 
-* **Eng. Salim Bassam Assil** — *Systems Architect & Lead Optical Researcher*  
+* **Eng. Saleem Asseel** — *Systems Architect & Lead Optical Researcher*  
   Old-school systems engineer (graduated '96). Spends his days wrestling with DSP mathematics, low-level ADC sampling, and making sure packets get where they need to go without digging up streets.  
   Direct contacts: [`assilno1@gmail.com`](mailto:assilno1@gmail.com) • [`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk) • [`saleem@cabelhunt.com`](mailto:saleem@cabelhunt.com)
 * **Batoul Mowafak Zain Alabdin** — *Chief Executive Officer (CEO)*  
   Steering the company, keeping investors happy, and making sure the business side runs as smoothly as the optics.
-* **Ahmad Jalal B Al Assil** — *Chief Operating Officer (COO)*  
+* **Ahmad Jalal Asseel** — *Chief Operating Officer (COO)*  
   Managing field trials, kit sourcing, and keeping our UK compliance paperwork spick and span.
 
 ---

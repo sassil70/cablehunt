@@ -35,6 +35,6 @@ Effective **September 30, 2027 (09/2027)**, CableHunt Networks Limited formally 
 For enterprise licensing, commercial deployment, field trial partnerships, or inquiries prior to September 2027, please contact the founding executive office:
 
 * **Executive Office:** 3rd Floor, 45 Albemarle Street, Mayfair, London, W1S 4JL, United Kingdom
-* **Founding Lead Systems Researcher:** Eng. Salim Bassam Assil (`assilno1@gmail.com`, `saleem@cablehunt.co.uk`, `saleem@cabelhunt.com`)
+* **Founding Lead Systems Researcher:** Eng. Saleem Asseel (`assilno1@gmail.com`, `saleem@cablehunt.co.uk`, `saleem@cabelhunt.com`)
 * **Corporate Enquiries:** `info@cablehunt.co.uk` | `partners@cablehunt.co.uk`
 * **Website:** [https://www.cablehunt.co.uk](https://www.cablehunt.co.uk)
