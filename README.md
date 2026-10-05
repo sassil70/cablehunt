@@ -9,11 +9,12 @@
 [![License](https://img.shields.io/badge/License-Private%20Evaluation%20(Open%20Source%20Sept%202027)-blueviolet?style=for-the-badge&logo=shield)](LICENSE.md)
 [![Hardware Architecture](https://img.shields.io/badge/OTDR%20Scope-12--Bit%20Native%20ADC-10B981?style=for-the-badge&logo=microchip)](https://www.cablehunt.co.uk)
 [![Speed Multiplier](https://img.shields.io/badge/Line--Rate-1G%20to%2040G%20Brownfield-6366F1?style=for-the-badge&logo=speedtest)](https://www.cablehunt.co.uk)
+[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-brightgreen?style=for-the-badge&logo=github)](https://sassil70.github.io/cablehunt/)
 [![UK Endorsement](https://img.shields.io/badge/UK%20Innovator%20Founder-Envestors%20FCA%20Reg-0052CC?style=for-the-badge&logo=unitedkingdom)](https://www.cablehunt.co.uk)
 
 <br/>
 
-[**Explore Web Platform**](https://www.cablehunt.co.uk) • [**Hugging Face AI Staging**](https://huggingface.co/sassil70/cablehunt-optical-ai) • [**Licensing Terms**](LICENSE.md) • [**Architecture**](#-technical-architecture) • [**Contact Executive Hub**](#-contact--executive-channels)
+[**Live Demo (GitHub Pages)**](https://sassil70.github.io/cablehunt/) • [**Official Portal**](https://www.cablehunt.co.uk) • [**Hugging Face AI Staging**](https://huggingface.co/sassil70/cablehunt-optical-ai) • [**Licensing Terms**](LICENSE.md) • [**Architecture**](#-technical-architecture) • [**Contact Executive Hub**](#-contact--executive-channels)
 
 </div>
 
