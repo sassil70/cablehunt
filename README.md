@@ -144,7 +144,7 @@ We are a small, focused British deep-tech venture backed under the **UK Innovato
   Direct contacts: [`assilno1@gmail.com`](mailto:assilno1@gmail.com) • [`saleem@cablehunt.co.uk`](mailto:saleem@cablehunt.co.uk) • [`saleem@cabelhunt.com`](mailto:saleem@cabelhunt.com)
 * **Batoul Mowafak Zain Alabdin** — *Chief Executive Officer (CEO)*  
   Steering the company, keeping investors happy, and making sure the business side runs as smoothly as the optics.
-* **Ahmad Jalal Asseel** — *Chief Operating Officer (COO)*  
+* **Ahmad Jalal Assil** — *Chief Operating Officer (COO)*  
   Managing field trials, kit sourcing, and keeping our UK compliance paperwork spick and span.
 
 ---
