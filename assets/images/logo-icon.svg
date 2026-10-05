@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- CableHunt Icon Favicon / Mark -->
+  <g transform="translate(6, 14)">
+    <path d="M 45 8 A 32 32 0 1 0 45 64" fill="none" stroke="#F7941D" stroke-width="11" stroke-linecap="butt" />
+    <path d="M 44 36 C 52 38 60 38 68 36 C 71 36 73 38 73 40 C 73 42 71 44 68 44 C 60 42 52 42 44 44 C 41 44 39 42 39 40 C 39 38 41 36 44 36 Z" fill="#FFFFFF" />
+    <circle cx="43" cy="40" r="5" fill="#FFFFFF" />
+    <circle cx="69" cy="40" r="5" fill="#FFFFFF" />
+    <circle cx="58" cy="14" r="4.2" fill="#FFFFFF" />
+    <circle cx="71" cy="26" r="4.2" fill="#FFFFFF" />
+    <circle cx="71" cy="54" r="4.2" fill="#FFFFFF" />
+    <circle cx="58" cy="66" r="4.2" fill="#FFFFFF" />
+  </g>
+</svg>

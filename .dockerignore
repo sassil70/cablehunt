@@ -1,0 +1,11 @@
+.git
+.gitignore
+*.md
+معلومات الشركة التقنية/
+ملاحطات المدير العام/
+test_results/
+*.py
+*.json
+*.txt
+scratch/
+.dockerignore
